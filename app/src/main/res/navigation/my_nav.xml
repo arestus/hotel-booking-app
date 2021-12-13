@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.booking.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.booking.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_hotelsListFragment"
+            app:destination="@id/hotelsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.booking.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hotelsListFragment"
+        android:name="com.example.booking.HotelsListFragment"
+        android:label="fragment_hotels_list"
+        tools:layout="@layout/fragment_hotels_list" >
+        <action
+            android:id="@+id/action_hotelsListFragment_to_specificHotelFragment"
+            app:destination="@id/specificHotelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/specificHotelFragment"
+        android:name="com.example.booking.SpecificHotelFragment"
+        android:label="fragment_specific_hotel"
+        tools:layout="@layout/fragment_specific_hotel" >
+        <action
+            android:id="@+id/action_specificHotelFragment_to_hotelsListFragment"
+            app:destination="@id/hotelsListFragment" />
+        <action
+            android:id="@+id/action_specificHotelFragment_to_createReservationFragment"
+            app:destination="@id/createReservationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.booking.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_changeEmailFragment"
+            app:destination="@id/changeEmailFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_loginHistoryFragment"
+            app:destination="@id/loginHistoryFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeEmailFragment"
+        android:name="com.example.booking.ChangeEmailFragment"
+        android:label="fragment_change_email"
+        tools:layout="@layout/fragment_change_email" >
+        <action
+            android:id="@+id/action_changeEmailFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myResrvationFragment"
+        android:name="com.example.booking.MyResrvationFragment"
+        android:label="fragment_my_resrvation"
+        tools:layout="@layout/fragment_my_resrvation" />
+    <fragment
+        android:id="@+id/createReservationFragment"
+        android:name="com.example.booking.CreateReservationFragment"
+        android:label="fragment_create_reservation"
+        tools:layout="@layout/fragment_create_reservation" />
+    <fragment
+        android:id="@+id/otherUsersFragment"
+        android:name="com.example.booking.OtherUsersFragment"
+        android:label="fragment_other_users"
+        tools:layout="@layout/fragment_other_users" />
+    <fragment
+        android:id="@+id/loginHistoryFragment"
+        android:name="com.example.booking.LoginHistoryFragment"
+        android:label="fragment_login_history"
+        tools:layout="@layout/fragment_login_history" >
+        <action
+            android:id="@+id/action_loginHistoryFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drawerMenuFragment"
+        android:name="com.example.booking.DrawerMenuFragment"
+        android:label="fragment_drawer_menu"
+        tools:layout="@layout/fragment_drawer_menu" >
+        <action
+            android:id="@+id/action_drawerMenuFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_drawerMenuFragment_to_myResrvationFragment"
+            app:destination="@id/myResrvationFragment" />
+        <action
+            android:id="@+id/action_drawerMenuFragment_to_otherUsersFragment"
+            app:destination="@id/otherUsersFragment" />
+    </fragment>
+</navigation>
