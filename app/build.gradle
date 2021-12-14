@@ -80,4 +80,6 @@ dependencies {
 
     //DataBinding
     kapt "com.android.databinding:compiler:3.2.0-alpha10"
+    //Dependency for circular image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
