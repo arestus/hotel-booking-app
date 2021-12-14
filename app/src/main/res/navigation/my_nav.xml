@@ -8,16 +8,19 @@
     <fragment
         android:id="@+id/splashScreenFragment"
         android:name="com.example.booking.fragments.SplashScreenFragment"
-        android:label="fragment_splash_screen"
+        android:label=""
         tools:layout="@layout/fragment_splash_screen" >
         <action
             android:id="@+id/action_splashScreenFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_drawerMenuFragment"
+            app:destination="@id/drawerMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.booking.fragments.LoginFragment"
-        android:label="fragment_login"
+        android:label="Login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
@@ -29,7 +32,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.booking.fragments.RegisterFragment"
-        android:label="fragment_register"
+        android:label="Register"
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
@@ -38,7 +41,7 @@
     <fragment
         android:id="@+id/hotelsListFragment"
         android:name="com.example.booking.fragments.HotelsListFragment"
-        android:label="fragment_hotels_list"
+        android:label="All Your options"
         tools:layout="@layout/fragment_hotels_list" >
         <action
             android:id="@+id/action_hotelsListFragment_to_specificHotelFragment"
