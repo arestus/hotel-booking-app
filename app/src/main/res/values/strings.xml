@@ -3,10 +3,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hotel_booking">HotelBooking.com</string>
     <string name="hello_login">Please login\nTo start researching options</string>
+    <string name="hello_register">Your New Account credentials</string>
     <string name="b_Letter">B.</string>
     <string name="email">Input your email</string>
     <string name="password">Input your password</string>
     <string name="login">Login</string>
+    <string name="registerMe">Register me</string>
     <string name="register">I don’t have an account\n(register me)
 </string>
 
