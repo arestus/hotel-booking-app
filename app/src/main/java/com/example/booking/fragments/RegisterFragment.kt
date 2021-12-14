@@ -9,6 +9,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.booking.R
 import com.example.booking.databinding.FragmentLoginBinding
 import com.example.booking.databinding.FragmentRegisterBinding
+import java.util.*
+import kotlin.concurrent.schedule
 
 
 class RegisterFragment : Fragment() {
@@ -21,9 +23,15 @@ class RegisterFragment : Fragment() {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
 
         binding.textViewRegisterMe.setOnClickListener {
-
+            binding.progressBar.visibility = View.VISIBLE
+            binding.progressBarBackground.visibility = View.VISIBLE
+            Timer("Test", false).schedule(2000) {
+                requireActivity().runOnUiThread {
+                    binding.progressBar.visibility = View.INVISIBLE
+                    binding.progressBarBackground.visibility = View.INVISIBLE
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-
+                }
+            }
         }
         return binding.root
     }

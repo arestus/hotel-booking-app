@@ -59,8 +59,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textWebEmailAddress"
-            android:hint="@string/email" />
+            android:hint="@string/email"
+            android:inputType="textWebEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,12 +78,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldEmail" >
+        app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldEmail">
+
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textWebPassword"
-            android:hint="@string/password" />
+            android:hint="@string/password"
+            android:inputType="textWebPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -124,6 +125,63 @@
         app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLogin" />
+<!--Loader-->
+    <TextView
+        android:id="@+id/progressBarBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@color/light_grey"
+        android:elevation="5dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+
+    </TextView>
+
+    <RelativeLayout
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        android:elevation="5dp"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar"
+            android:layout_width="123dp"
+            android:layout_height="79dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showAnimationBehavior="inward"
+            app:trackColor="@color/orange" />
+
+        <TextView
+            android:id="@+id/loading"
+            android:layout_width="210dp"
+            android:layout_height="103dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="150dp"
+            android:gravity="center"
+            android:hint="Loading...."
+            android:textSize="40sp" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
