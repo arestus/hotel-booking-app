@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Kanini/Android/Booking/app/src/main/res/drawable-v24/ic_delete.xml" value="0.14375" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26666666666666666" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/drawable-v24/white_button.xml" value="0.14375" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/drawable/b_letter.xml" value="0.19907407407407407" />
@@ -12,7 +13,10 @@
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/layout/fragment_login.xml" value="0.264" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/layout/fragment_register.xml" value="0.12760416666666666" />
+        <entry key="..\:/Kanini/Android/Booking/app/src/main/res/layout/fragment_specific_hotel.xml" value="0.2" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/layout/fragment_splash_screen.xml" value="0.23809523809523808" />
+        <entry key="..\:/Kanini/Android/Booking/app/src/main/res/layout/hotel_row_custom.xml" value="0.176" />
+        <entry key="..\:/Kanini/Android/Booking/app/src/main/res/menu/test.xml" value="0.12760416666666666" />
       </map>
     </option>
   </component>

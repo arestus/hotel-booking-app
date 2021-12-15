@@ -1,14 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hotelRowCustom"
+    android:padding="10dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.SpecificHotelFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/hotelPhoto"
+        android:layout_width="321dp"
+        android:layout_height="285dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/roomLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/hotelPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/hotelPhoto" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/pricePerRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/roomLeft"
+        app:layout_constraintTop_toBottomOf="@+id/roomLeft" />
+
+    <TextView
+        android:id="@+id/reservedByPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/pricePerRoom"
+        app:layout_constraintTop_toBottomOf="@+id/pricePerRoom" />
+
+    <TextView
+        android:id="@+id/localAttraction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/roomLeft"
+        app:layout_constraintTop_toBottomOf="@+id/reservedByPeople" />
+    <TextView
+        android:id="@+id/localAttractionDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/roomLeft"
+        app:layout_constraintTop_toBottomOf="@+id/localAttraction" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

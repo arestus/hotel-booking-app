@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 //      setContentView(R.layout.activity_main)
-
+        FillLocalDB()
         setupActionBarWithNavController(findNavController(R.id.fragmentContainerView))
 
 
@@ -45,8 +45,9 @@ class MainActivity : AppCompatActivity() {
         val httpApiService = myApplication.httpApiService
 
         val dao = BookingDatabase.getInstance(this).bookingDao()
-
         CoroutineScope(Dispatchers.IO).launch {
+            val test = dao.getHotels()
+            Log.d("BookingDBString333", "$test")
 
             //val deleteDB = deleteDatabase("BookingDB");
             var user = httpApiService.login(UserMin("alina@gmail.com", "qaqaqa"))

@@ -1,6 +1,7 @@
 package com.example.booking
 
 import android.app.Application
+import android.util.Log
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import retrofit2.Retrofit
@@ -10,6 +11,7 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import com.fasterxml.jackson.databind.DeserializationFeature
+import retrofit.GsonConverterFactory
 import java.io.IOException
 
 class BookingApp : Application() {
@@ -29,13 +31,14 @@ class BookingApp : Application() {
                 .build()
             chain.proceed(newRequest)
         }.build()
-
+        Log.d("HttpString", "$authToken")
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://android-kanini-course.cloud/hotelBooking/")
             .client(client)
+            .baseUrl("https://android-kanini-course.cloud/hotelBooking/")
             .addConverterFactory(JacksonConverterFactory.create(ObjectMapper()))
             .build()
 
+        Log.d("HttpString", "$retrofit")
         return retrofit.create(HttpApiService::class.java)
 
     }
