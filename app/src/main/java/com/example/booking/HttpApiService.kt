@@ -18,7 +18,7 @@ interface HttpApiService {
    suspend fun register(@Body userMin: UserMin)
 
    @DELETE("users/me")
-   suspend fun delete()
+   suspend fun deleteUser()
 
    @DELETE("users/me/reservations/{reservationId}")
    suspend fun deleteReservation(@Path("reservationId") id: Int)
@@ -30,7 +30,7 @@ interface HttpApiService {
    suspend fun createReservation(@Body reserv: ReservationMin)
 
    @POST("users/me/email")
-   suspend fun changeEmail(@Body email: String)
+   suspend fun changeEmail(@Body email: UserEmail)
 
    @GET("users/me/loginHistory")
    suspend fun getLoginHistory(): ResponseLoginHistory

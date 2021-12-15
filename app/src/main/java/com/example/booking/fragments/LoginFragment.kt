@@ -1,6 +1,7 @@
 package com.example.booking.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,19 +9,27 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.booking.BookingApp
 import com.example.booking.R
+import com.example.booking.data.UserMin
 import com.example.booking.databinding.FragmentLoginBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.*
 import kotlin.concurrent.schedule
 
 class LoginFragment : Fragment() {
-    private var _binding:  FragmentLoginBinding? = null
+    private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        val myApplication = activity?.application as BookingApp
+        val httpApiService = myApplication.httpApiService
 
         binding.textViewRegister.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
@@ -39,6 +48,21 @@ class LoginFragment : Fragment() {
         binding.textViewLogin.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
             binding.progressBarBackground.visibility = View.VISIBLE
+
+            CoroutineScope(Dispatchers.IO).launch {
+
+
+//                val user: UserMin = UserMin("olekss@gmail.com", "qaqaqa")
+//                val decodedJsonResult = httpApiService.login(user)
+//                val decodedJsonResult2 = httpApiService.register(user)
+
+//                val userMax = decodedJsonResult
+//                val userreg = decodedJsonResult2
+                withContext(Dispatchers.Main){
+                    Log.d("HttpString", "userMax")
+//                    Log.d("HttpString", "$userreg")
+                }
+            }
             Timer("Test", false).schedule(2000) {
                 requireActivity().runOnUiThread {
                     binding.progressBar.visibility = View.INVISIBLE
@@ -50,6 +74,20 @@ class LoginFragment : Fragment() {
 
 
         }
+
+        CoroutineScope(Dispatchers.IO).launch {
+//            val user: UserMin = UserMin("alina@gmail.com", "qaqaqa")
+            val decodedJsonResult = httpApiService.getHotels().hotels
+//
+//
+            val userMax = decodedJsonResult
+//
+            withContext(Dispatchers.Main){
+                Log.d("HttpString", "$userMax")
+            }
+        }
+
+
         return binding.root
     }
 
