@@ -26,7 +26,7 @@ abstract class BookingDatabase : RoomDatabase() {
                 return INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
                     BookingDatabase::class.java,
-                    "BookingDB"
+                    "BookingDataBase"
                 ).build().also {
                     INSTANCE = it
                 }
