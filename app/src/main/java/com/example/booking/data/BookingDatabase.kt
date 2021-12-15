@@ -10,11 +10,12 @@ import androidx.room.RoomDatabase
         User::class,
         Hotel::class,
         Reservation::class,
-        LoginHistory::class
+        LoginHistory::class,
+        LocalUser::class
     ],
     version = 1)
 abstract class BookingDatabase : RoomDatabase() {
-    abstract fun authorDao(): BookingDao
+    abstract fun bookingDao(): BookingDao
 
     companion object{
         @Volatile

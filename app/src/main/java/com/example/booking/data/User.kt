@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 @Entity(tableName = "users")
 data class User(
     @PrimaryKey
-    val userId: Int = 0,
+    val Id: Int = 0,
     val email: String = "",
-    val password: String = "",
+    var password: String? = null,
     val token: String = "",
     val memberSince: String = ""
 )
