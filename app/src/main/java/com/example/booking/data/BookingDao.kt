@@ -6,7 +6,7 @@ import androidx.room.*
 interface BookingDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllUsers(user: User)
+    suspend fun insertUser(user: User)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllHotels(vararg hotels: Hotel)
@@ -22,4 +22,19 @@ interface BookingDao {
 
     @Query("SELECT * FROM hotels")
     suspend fun getHotels(): List<Hotel>
+
+    @Query("SELECT * FROM reservations")
+    suspend fun getReservations(): List<Reservation>
+
+    @Query("SELECT * FROM localUsers")
+    suspend fun getLocalUsers(): List<LocalUser>
+
+    @Query("SELECT * FROM loginHistory")
+    suspend fun getLoginHistory(): List<LoginHistory>
+
+    @Query("SELECT * FROM users WHERE id = (SELECT MAX(id) FROM users)")
+    suspend fun getUser(): User
+
+
+
 }

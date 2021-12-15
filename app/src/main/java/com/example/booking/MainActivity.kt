@@ -24,19 +24,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val myApplication = application as BookingApp
-        val httpApiService = myApplication.httpApiService
 
         val dao = BookingDatabase.getInstance(this).bookingDao()
 
-        CoroutineScope(Dispatchers.IO).launch {
 
-
-
-            withContext(Dispatchers.Main){
-               //Log.d("HttpString", "$res")
-            }
-        }
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -49,6 +40,39 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun FillLocalDB(): BookingDao {
+        val myApplication = application as BookingApp
+        val httpApiService = myApplication.httpApiService
+
+        val dao = BookingDatabase.getInstance(this).bookingDao()
+
+        CoroutineScope(Dispatchers.IO).launch {
+
+            //val deleteDB = deleteDatabase("BookingDB");
+            var user = httpApiService.login(UserMin("alina@gmail.com", "qaqaqa"))
+            val hotels = httpApiService.getHotels().hotels?.toTypedArray() ?: emptyArray()
+            val reservations = httpApiService.getReservations().reservations?.toTypedArray() ?: emptyArray()
+            val localUsers = httpApiService.getLocalUsers().users?.toTypedArray() ?: emptyArray()
+            val loginHistory = httpApiService.getLoginHistory().loginEntries?.toTypedArray() ?: emptyArray()
+            if (!hotels.isNullOrEmpty())
+                dao.insertAllHotels(*hotels)
+            if (user != null)
+                dao.insertUser(user)
+            if (!reservations.isNullOrEmpty() && user != null && !hotels.isNullOrEmpty())
+                dao.insertAllReservations(*reservations)
+            if (!localUsers.isNullOrEmpty())
+                dao.insertAllLocalUsers(*localUsers)
+            if (!loginHistory.isNullOrEmpty())
+                dao.insertAllLoginHistory(*loginHistory)
+
+
+            withContext(Dispatchers.Main){
+                Log.d("BookingDBString", "DB Filled")
+
+            }
+        }
+        return dao;
+    }
 
 
     override fun onSupportNavigateUp(): Boolean {

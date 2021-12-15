@@ -11,16 +11,14 @@ interface HttpApiService {
    @GET("hotels")
    suspend fun getHotels(): ResponseHotel
 
-   @Headers("Authorization: false")
    @POST("login")
    suspend fun login(@Body userMin: UserMin): User
 
-   @Headers("Authorization: false")
    @POST("register")
    suspend fun register(@Body userMin: UserMin)
 
    @DELETE("users/me")
-   suspend fun delete()
+   suspend fun deleteUser()
 
    @DELETE("users/me/reservations/{reservationId}")
    suspend fun deleteReservation(@Path("reservationId") id: Int)
