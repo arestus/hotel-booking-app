@@ -11,8 +11,8 @@ data class Hotel(
     val id: Int = 0,
     val name: String = "",
     val url: String = "",
-    val roomsLef: Int = 0,
-    val pricePerNigh: Int = 0,
+    val roomsLeft: Int = 0,
+    val pricePerNight: Int = 0,
     val reservedByPeople: Int = 0
 )
 

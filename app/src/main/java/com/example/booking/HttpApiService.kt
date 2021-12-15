@@ -11,9 +11,11 @@ interface HttpApiService {
    @GET("hotels")
    suspend fun getHotels(): ResponseHotel
 
+   @Headers("Authorization: false")
    @POST("login")
    suspend fun login(@Body userMin: UserMin): User
 
+   @Headers("Authorization: false")
    @POST("register")
    suspend fun register(@Body userMin: UserMin)
 
@@ -30,7 +32,7 @@ interface HttpApiService {
    suspend fun createReservation(@Body reserv: ReservationMin)
 
    @POST("users/me/email")
-   suspend fun changeEmail(@Body email: String)
+   suspend fun changeEmail(@Body email: UserEmail)
 
    @GET("users/me/loginHistory")
    suspend fun getLoginHistory(): ResponseLoginHistory

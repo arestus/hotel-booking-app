@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.booking.data.Hotel
-import com.example.booking.data.LocalUser
-import com.example.booking.data.LoginHistory
+import com.example.booking.data.*
 
 import com.example.booking.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
@@ -29,12 +27,14 @@ class MainActivity : AppCompatActivity() {
         val myApplication = application as BookingApp
         val httpApiService = myApplication.httpApiService
 
+        val dao = BookingDatabase.getInstance(this).bookingDao()
+
         CoroutineScope(Dispatchers.IO).launch {
 
-            val res = httpApiService.getHotels().hotels
+
 
             withContext(Dispatchers.Main){
-                //Log.d("HttpString", "$res")
+               //Log.d("HttpString", "$res")
             }
         }
 
