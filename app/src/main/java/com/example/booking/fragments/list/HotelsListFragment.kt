@@ -18,8 +18,8 @@ import kotlin.concurrent.schedule
 
 class HotelsListFragment : Fragment() {
     private lateinit var mUserViewModel: HotelViewModel
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<HotelListAdapter.MyViewHolder>? = null
+//    private var layoutManager: RecyclerView.LayoutManager? = null
+//    private var adapter: RecyclerView.Adapter<HotelListAdapter.MyViewHolder>? = null
 //
 
     private var _binding: FragmentHotelsListBinding? = null
@@ -27,7 +27,7 @@ class HotelsListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHotelsListBinding.inflate(inflater, container, false)
         val adapter = HotelListAdapter(emptyList())
         val recyclerView = binding.hotelRecyclerView
