@@ -31,23 +31,10 @@ class MainActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
 
+            val res = httpApiService.getHotels().hotels
 
-           /* val call: Call<LoginHistory> = httpApiService.getLoginHistory()
-            call.enqueue(object : Callback<LoginHistory> {
-                override fun onResponse(call: Call<LoginHistory>, response: Response<LoginHistory>) {
-                    if (response.isSuccessful) {
-                        val rawJsonString = response.body()?.toString()
-                        Log.d("HttpString", "Success")
-                    }
-                }
-
-                override fun onFailure(call: Call<LoginHistory>, t: Throwable) {
-                    Log.d("HttpString", "FAIL")
-                }
-
-            })*/
             withContext(Dispatchers.Main){
-                Log.d("HttpString", "Check")
+                //Log.d("HttpString", "$res")
             }
         }
 

@@ -7,6 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @Entity(tableName = "loginHistory")
 data class LoginHistory(
     @PrimaryKey
-    @JsonProperty("loginDateTimestamp") val loginDateTimestamp: String = ""
+    val loginTimestamp: String = ""
 )
 
