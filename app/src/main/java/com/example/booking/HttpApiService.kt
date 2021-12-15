@@ -9,7 +9,7 @@ import retrofit2.http.*
 interface HttpApiService {
 
    @GET("hotels")
-   suspend fun getHotels(): List<Hotel>
+   suspend fun getHotels(): ResponseHotel
 
    @POST("login")
    suspend fun login(@Body userMin: UserMin): User
@@ -24,7 +24,7 @@ interface HttpApiService {
    suspend fun deleteReservation(@Path("reservationId") id: Int)
 
    @GET("users/me/reservations")
-   suspend fun getReservations(): List<Reservation>
+   suspend fun getReservations(): ResponseReservation
 
    @POST("users/me/reservations")
    suspend fun createReservation(@Body reserv: ReservationMin)
@@ -33,9 +33,9 @@ interface HttpApiService {
    suspend fun changeEmail(@Body email: String)
 
    @GET("users/me/loginHistory")
-   suspend fun getLoginHistory(): Call<LoginHistory>
+   suspend fun getLoginHistory(): ResponseLoginHistory
 
    @GET("users")
-   suspend fun getLocalUsers(): Call<LocalUser>
+   suspend fun getLocalUsers(): ResponseLocalUser
 
 }

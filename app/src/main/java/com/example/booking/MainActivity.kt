@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             call.enqueue(object : Callback<LoginHistory> {
                 override fun onResponse(call: Call<LoginHistory>, response: Response<LoginHistory>) {
                     if (response.isSuccessful) {
-                        val rawJsonString = response.body()?.toString()
+                        val rawJsonString = response.code()?.toString()
                         Log.d("HttpString", "Success")
                     }
                 }
@@ -46,8 +46,10 @@ class MainActivity : AppCompatActivity() {
                 }
 
             })*/
+            val res = httpApiService.getReservations().reservations
+
             withContext(Dispatchers.Main){
-                Log.d("HttpString", "Check")
+                Log.d("HttpString", "$res")
             }
         }
 
