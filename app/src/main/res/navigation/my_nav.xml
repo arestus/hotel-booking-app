@@ -21,6 +21,7 @@
         android:id="@+id/loginFragment"
         android:name="com.example.booking.fragments.LoginFragment"
         android:label="Login"
+
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
@@ -97,7 +98,11 @@
         android:id="@+id/createReservationFragment"
         android:name="com.example.booking.fragments.CreateReservationFragment"
         android:label="fragment_create_reservation"
-        tools:layout="@layout/fragment_create_reservation" />
+        tools:layout="@layout/fragment_create_reservation" >
+        <argument
+            android:name="createReserve"
+            app:argType="com.example.booking.data.Hotel" />
+    </fragment>
     <fragment
         android:id="@+id/otherUsersFragment"
         android:name="com.example.booking.fragments.OtherUsersFragment"

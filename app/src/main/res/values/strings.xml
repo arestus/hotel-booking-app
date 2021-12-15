@@ -12,4 +12,6 @@
     <string name="register">I don’t have an account\n(register me)</string>
     <string name="fragment_specific_hotel">Hotel Name</string>
     <string name="delete">Delete</string>
+    <string name="pricePerNight">%1$d  per night</string>
+    <string name="create_reservation">Create reservation</string>
 </resources>
