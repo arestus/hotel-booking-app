@@ -9,7 +9,7 @@
     <string name="password">Input your password</string>
     <string name="login">Login</string>
     <string name="registerMe">Register me</string>
-    <string name="register">I don’t have an account\n(register me)
-</string>
-
+    <string name="register">I don’t have an account\n(register me)</string>
+    <string name="fragment_specific_hotel">Hotel Name</string>
+    <string name="delete">Delete</string>
 </resources>

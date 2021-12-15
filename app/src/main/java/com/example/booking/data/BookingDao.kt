@@ -1,5 +1,6 @@
 package com.example.booking.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
@@ -21,7 +22,7 @@ interface BookingDao {
     suspend fun insertAllLocalUsers(vararg localUsers: LocalUser)
 
     @Query("SELECT * FROM hotels")
-    suspend fun getHotels(): List<Hotel>
+    fun getHotels(): LiveData<List<Hotel>>
 
     @Query("SELECT * FROM reservations")
     suspend fun getReservations(): List<Reservation>

@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HotelsListFragment">
+    tools:context=".fragments.list.HotelsListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hotelRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

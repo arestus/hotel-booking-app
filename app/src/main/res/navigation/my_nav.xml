@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/hotelsListFragment"
-        android:name="com.example.booking.fragments.HotelsListFragment"
+        android:name="com.example.booking.fragments.list.HotelsListFragment"
         android:label="All Your options"
         tools:layout="@layout/fragment_hotels_list" >
         <action
@@ -53,7 +53,6 @@
     <fragment
         android:id="@+id/specificHotelFragment"
         android:name="com.example.booking.fragments.SpecificHotelFragment"
-        android:label="fragment_specific_hotel"
         tools:layout="@layout/fragment_specific_hotel" >
         <action
             android:id="@+id/action_specificHotelFragment_to_hotelsListFragment"
@@ -61,6 +60,9 @@
         <action
             android:id="@+id/action_specificHotelFragment_to_createReservationFragment"
             app:destination="@id/createReservationFragment" />
+        <argument
+            android:name="currentHotel"
+            app:argType="com.example.booking.data.Hotel" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -87,7 +89,7 @@
             app:destination="@id/profileFragment" />
     </fragment>
     <fragment
-        android:id="@+id/myResrvationFragment"
+        android:id="@+id/myReservationFragment"
         android:name="com.example.booking.fragments.MyReservationFragment"
         android:label="fragment_my_resrvation"
         tools:layout="@layout/fragment_my_resrvation" />
@@ -120,7 +122,7 @@
             app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_drawerMenuFragment_to_myResrvationFragment"
-            app:destination="@id/myResrvationFragment" />
+            app:destination="@id/myReservationFragment" />
         <action
             android:id="@+id/action_drawerMenuFragment_to_otherUsersFragment"
             app:destination="@id/otherUsersFragment" />
