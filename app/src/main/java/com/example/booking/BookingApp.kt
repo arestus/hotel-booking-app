@@ -9,7 +9,8 @@ import okhttp3.Interceptor
 
 import okhttp3.OkHttpClient
 import okhttp3.Request
-
+import com.fasterxml.jackson.databind.DeserializationFeature
+import java.io.IOException
 
 class BookingApp : Application() {
     public lateinit var httpApiService: HttpApiService
@@ -17,7 +18,7 @@ class BookingApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        httpApiService = initHttpApiService()
+        httpApiService = initHttpApiService("27f029be-088a-4c49-b96a-858b62fdeea5")
     }
 
     private fun initHttpApiService(authToken: String? = null): HttpApiService {
@@ -34,6 +35,7 @@ class BookingApp : Application() {
             .client(client)
             .addConverterFactory(JacksonConverterFactory.create(ObjectMapper()))
             .build()
+
         return retrofit.create(HttpApiService::class.java)
 
     }

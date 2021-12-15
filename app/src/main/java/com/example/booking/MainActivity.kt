@@ -1,16 +1,25 @@
 package com.example.booking
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.booking.data.UserMin
+import com.example.booking.data.Hotel
+import com.example.booking.data.LocalUser
+import com.example.booking.data.LoginHistory
+
 import com.example.booking.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Call
+import retrofit2.Callback
+
+import retrofit2.Response
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -21,14 +30,24 @@ class MainActivity : AppCompatActivity() {
         val httpApiService = myApplication.httpApiService
 
         CoroutineScope(Dispatchers.IO).launch {
-            val user: UserMin = UserMin("alina@gmail.com", "qaqaqa")
-            val decodedJsonResult = httpApiService.login(user)
 
 
-            val userMax = decodedJsonResult
+           /* val call: Call<LoginHistory> = httpApiService.getLoginHistory()
+            call.enqueue(object : Callback<LoginHistory> {
+                override fun onResponse(call: Call<LoginHistory>, response: Response<LoginHistory>) {
+                    if (response.isSuccessful) {
+                        val rawJsonString = response.body()?.toString()
+                        Log.d("HttpString", "Success")
+                    }
+                }
 
+                override fun onFailure(call: Call<LoginHistory>, t: Throwable) {
+                    Log.d("HttpString", "FAIL")
+                }
+
+            })*/
             withContext(Dispatchers.Main){
-                Log.d("HttpString", "$userMax")
+                Log.d("HttpString", "Check")
             }
         }
 
