@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.booking.R
+import com.example.booking.databinding.FragmentHotelsListBinding
+import com.example.booking.databinding.FragmentOtherUsersBinding
 
 class OtherUsersFragment : Fragment() {
-
+    private var _binding: FragmentOtherUsersBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

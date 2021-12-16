@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.booking.BookingApp
@@ -51,10 +52,14 @@ class SpecificHotelFragment : Fragment() {
 //        binding.localAttractionDescription.text = "Rooms left: ${args.currentHotel.roomsLeft}"
         Picasso.get().load(args.currentHotel.url).into( binding.hotelPhoto)
 //
-        binding.createReservation.setOnClickListener {
-            findNavController().navigate(R.id.action_specificHotelFragment_to_createReservationFragment)
-//            createReservation(args.currentHotel.id, args.currentHotel.)
+        binding.hotelRowCustom.setOnClickListener { view ->
+            val action = SpecificHotelFragmentDirections.actionSpecificHotelFragmentToCreateReservationFragment(args.currentHotel)
+            Navigation.findNavController(view).navigate(action)
         }
+//        binding.createReservation.setOnClickListener {
+//            findNavController().navigate(R.id.action_specificHotelFragment_to_createReservationFragment)
+////            createReservation(args.currentHotel.id, args.currentHotel.)
+//        }
         setHasOptionsMenu(true)
         return binding.root
     }
