@@ -28,10 +28,10 @@ interface BookingDao {
     suspend fun getReservations(): List<Reservation>
 
     @Query("SELECT * FROM localUsers")
-    suspend fun getLocalUsers(): List<LocalUser>
+    fun getLocalUsers(): LiveData<List<LocalUser>>
 
     @Query("SELECT * FROM loginHistory")
-    suspend fun getLoginHistory(): List<LoginHistory>
+     fun getLoginHistory(): LiveData<List<LoginHistory>>
 
     @Query("SELECT * FROM users WHERE id = (SELECT MAX(id) FROM users)")
     suspend fun getUser(): User

@@ -20,6 +20,15 @@
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/menu/drawer_menu.xml" value="0.13020833333333334" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/menu/test.xml" value="0.12760416666666666" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/menu/test_menu.xml" value="0.152" />
+        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/drawable/box_with_word.xml" value="0.27447916666666666" />
+        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
+        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/fragment_hotels_list.xml" value="0.2717391304347826" />
+        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/fragment_login_history.xml" value="0.2359375" />
+        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/fragment_other_users.xml" value="0.22" />
+        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/fragment_specific_hotel.xml" value="0.2717391304347826" />
+        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/history_item.xml" value="0.15725806451612903" />
+        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/hotel_row_custom.xml" value="0.2717391304347826" />
+        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/other_user_row.xml" value="0.1" />
       </map>
     </option>
   </component>

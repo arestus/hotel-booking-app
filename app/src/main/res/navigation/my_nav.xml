@@ -105,12 +105,12 @@
     </fragment>
     <fragment
         android:id="@+id/otherUsersFragment"
-        android:name="com.example.booking.fragments.OtherUsersFragment"
+        android:name="com.example.booking.fragments.otherUser.OtherUsersFragment"
         android:label="fragment_other_users"
         tools:layout="@layout/fragment_other_users" />
     <fragment
         android:id="@+id/loginHistoryFragment"
-        android:name="com.example.booking.fragments.LoginHistoryFragment"
+        android:name="com.example.booking.fragments.loginHistory.LoginHistoryFragment"
         android:label="fragment_login_history"
         tools:layout="@layout/fragment_login_history" >
         <action
