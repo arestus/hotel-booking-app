@@ -20,6 +20,7 @@ class OtherUsersFragment : Fragment() {
     ): View? {
         _binding = FragmentOtherUsersBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
+        binding.otherUsersTitle.text = "Other users"
         binding.otherUsersBack.setOnClickListener{
             findNavController().navigate(R.id.action_otherUsersFragment_to_hotelsListFragment)
         }

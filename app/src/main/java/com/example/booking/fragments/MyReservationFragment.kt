@@ -20,6 +20,7 @@ class MyReservationFragment : Fragment() {
     ): View? {
         _binding = FragmentMyResrvationBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
+        binding.myReservationsTitle.text = "My reservations"
         binding.myReservationsBack.setOnClickListener{
             findNavController().navigate(R.id.action_myReservationFragment_to_hotelsListFragment)
         }

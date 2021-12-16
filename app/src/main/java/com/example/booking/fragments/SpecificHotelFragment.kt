@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.booking.MainActivity
 import com.example.booking.R
@@ -39,6 +40,10 @@ class SpecificHotelFragment : Fragment() {
 //        binding.UpdateButton.setOnClickListener {
 //            updateData()
 //        }
+        binding.hotelNameTitle.text = args.currentHotel.name
+        binding.specificHotelBack.setOnClickListener{
+            findNavController().navigate(R.id.action_specificHotelFragment_to_hotelsListFragment)
+        }
         setHasOptionsMenu(true)
         return binding.root
 //         val urltmp = "https://www.gannett-cdn.com/-mm-/f85d715f4ef18e245988237e803cdef2db1daf68/c=0-255-4256-2656/local/-/media/USATODAY/test/2013/10/25/1382729502000-160857233.jpg"

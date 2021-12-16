@@ -45,7 +45,7 @@ class HotelsListFragment : Fragment() {
         binding.backButton.setOnClickListener{
             findNavController().navigate(R.id.action_hotelsListFragment_to_loginFragment)
         }
-
+        binding.hotelsFragmentTitle.text = "All Your Options"
         Timer("Test", false).schedule(2000) {
             requireActivity().runOnUiThread {
 
