@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_hotelsListFragment_to_specificHotelFragment"
             app:destination="@id/specificHotelFragment" />
+        <action
+            android:id="@+id/action_hotelsListFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/specificHotelFragment"

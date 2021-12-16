@@ -42,7 +42,9 @@ class HotelsListFragment : Fragment() {
         mUserViewModel.readAllHotels.observe(viewLifecycleOwner, { user ->
             adapter.setData(user)
         })
-
+        binding.backButton.setOnClickListener{
+            findNavController().navigate(R.id.action_hotelsListFragment_to_loginFragment)
+        }
 
         Timer("Test", false).schedule(2000) {
             requireActivity().runOnUiThread {

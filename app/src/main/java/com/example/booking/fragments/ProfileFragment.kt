@@ -15,7 +15,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
