@@ -81,6 +81,9 @@
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_fragment_hotels_list"
+            app:destination="@id/hotelsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/changeEmailFragment"
@@ -95,7 +98,11 @@
         android:id="@+id/myReservationFragment"
         android:name="com.example.booking.fragments.MyReservationFragment"
         android:label="fragment_my_resrvation"
-        tools:layout="@layout/fragment_my_resrvation" />
+        tools:layout="@layout/fragment_my_resrvation">
+        <action
+            android:id="@+id/action_myReservationFragment_to_hotelsListFragment"
+            app:destination="@id/hotelsListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createReservationFragment"
         android:name="com.example.booking.fragments.CreateReservationFragment"
@@ -105,7 +112,11 @@
         android:id="@+id/otherUsersFragment"
         android:name="com.example.booking.fragments.OtherUsersFragment"
         android:label="fragment_other_users"
-        tools:layout="@layout/fragment_other_users" />
+        tools:layout="@layout/fragment_other_users">
+        <action
+            android:id="@+id/action_otherUsersFragment_to_hotelsListFragment"
+            app:destination="@id/hotelsListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginHistoryFragment"
         android:name="com.example.booking.fragments.LoginHistoryFragment"
@@ -124,7 +135,7 @@
             android:id="@+id/action_drawerMenuFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_drawerMenuFragment_to_myResrvationFragment"
+            android:id="@+id/action_drawerMenuFragment_to_myReservationFragment"
             app:destination="@id/myReservationFragment" />
         <action
             android:id="@+id/action_drawerMenuFragment_to_otherUsersFragment"
