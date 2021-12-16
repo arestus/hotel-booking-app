@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawer_layout)
         navController = findNavController(R.id.fragmentContainerView)
         binding.navigationView.setupWithNavController(navController)
-
+        supportActionBar!!.hide()
 
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -97,6 +98,13 @@ class MainActivity : AppCompatActivity() {
         return dao;
     }
 
+    fun openCloseNavigationDrawer(view: View) {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.fragmentContainerView)

@@ -7,7 +7,7 @@
             android:icon="@drawable/ic_drawer_profile"
             />
         <item
-            android:id="@+id/myResrvationFragment"
+            android:id="@+id/myReservationFragment"
             android:title="My reservations"
             android:icon="@drawable/ic_drawer_list"/>
         <item

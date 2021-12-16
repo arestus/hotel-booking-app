@@ -11,6 +11,9 @@ import com.example.booking.databinding.FragmentHotelsListBinding
 import com.example.booking.viewmodels.HotelViewModel
 import java.util.*
 import kotlin.concurrent.schedule
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
+import com.example.booking.R
 
 
 class HotelsListFragment : Fragment() {
@@ -30,12 +33,15 @@ class HotelsListFragment : Fragment() {
         val recyclerView = binding.hotelRecyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
         mUserViewModel = ViewModelProvider(this)[HotelViewModel::class.java]
         mUserViewModel.readAllHotels.observe(viewLifecycleOwner, { user ->
             adapter.setData(user)
         })
-
+        binding.backButton.setOnClickListener{
+            findNavController().navigate(R.id.action_hotelsListFragment_to_loginFragment)
+        }
+        binding.hotelsFragmentTitle.text = "All Your Options"
         Timer("Test", false).schedule(2000) {
             requireActivity().runOnUiThread {
 
