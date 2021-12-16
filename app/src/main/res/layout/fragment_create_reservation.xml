@@ -19,7 +19,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-=======
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/orange_button"
+        app:backgroundTint="@color/orange"
+        android:gravity="center"
+        android:textAllCaps="true"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconTint="#ffffff"
+        app:layout_constraintStart_toEndOf="@+id/daysView"
+        app:layout_constraintTop_toTopOf="@+id/daysView" />
+
     <ImageView
         android:id="@+id/hotelPhoto"
         android:layout_width="330dp"
@@ -27,75 +44,66 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/roomLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:id="@+id/daysView"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="52dp"
+        android:text="Days"
+        android:gravity="center_vertical"
         android:textColor="@color/orange"
-        android:textSize="16sp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/hotelPhoto"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hotelPhoto" />
 
     <TextView
-        android:id="@+id/pricePerRoom"
+        android:id="@+id/priceView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        android:text="Price"
         android:textColor="@color/orange"
-        android:textSize="16sp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/roomLeft"
-        app:layout_constraintTop_toBottomOf="@+id/roomLeft" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/daysView"
+        app:layout_constraintTop_toBottomOf="@+id/daysView" />
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/minusView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/orange_button"
+        app:backgroundTint="@color/light_grey"
+        android:gravity="center"
+        android:state_enabled="true"
+        android:textAllCaps="true"
+        app:icon="@drawable/ic_minus"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:cornerRadius="12dp"
+        app:iconTint="#ffffff"
+        app:layout_constraintEnd_toStartOf="@+id/daysView"
+        app:layout_constraintTop_toTopOf="@+id/daysView" />
 
     <TextView
-        android:id="@+id/reservedByPeople"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/orange"
-        android:textSize="16sp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/pricePerRoom"
-        app:layout_constraintTop_toBottomOf="@+id/pricePerRoom" />
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/localAttraction"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:textColor="@color/orange"-->
-    <!--        android:textSize="16sp"-->
-    <!--        android:text="TextView"-->
-    <!--        app:layout_constraintStart_toStartOf="@+id/roomLeft"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/reservedByPeople" />-->
-    <!--    <TextView-->
-    <!--        android:id="@+id/localAttractionDescription"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:textColor="@color/orange"-->
-    <!--        android:textSize="16sp"-->
-    <!--        android:text="TextView"-->
-    <!--        app:layout_constraintStart_toStartOf="@+id/roomLeft"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/localAttraction" />-->
-
-    <TextView
-        android:id="@+id/createReservation"
+        android:id="@+id/confirmReservation"
         android:layout_width="321dp"
         android:layout_height="61dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/orange_button"
         android:gravity="center"
         android:padding="10dp"
-        android:text="@string/create_reservation"
+        android:text="@string/confirm_reservation"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reservedByPeople" />
+        app:layout_constraintTop_toBottomOf="@+id/priceView" />
 
->>>>>>> master
 </androidx.constraintlayout.widget.ConstraintLayout>

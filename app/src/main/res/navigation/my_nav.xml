@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/hotelsListFragment"
-        android:name="com.example.booking.fragments.list.HotelsListFragment"
+        android:name="com.example.booking.fragments.list.htelslist.HotelsListFragment"
         android:label="All Your options"
         tools:layout="@layout/fragment_hotels_list" >
         <action

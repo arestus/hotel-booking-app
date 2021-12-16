@@ -1,14 +1,10 @@
-package com.example.booking.fragments.list
+package com.example.booking.fragments.list.htelslist
 
-import android.util.Log
-import android.content.Context
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.booking.R
 import com.example.booking.data.Hotel
 import com.example.booking.databinding.HotelRowCustomBinding
 import com.squareup.picasso.Picasso
@@ -16,7 +12,7 @@ import com.squareup.picasso.Picasso
 class HotelListAdapter(private var hotelList: List<Hotel>) :
     RecyclerView.Adapter<HotelListAdapter.MyViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotelListAdapter.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = HotelRowCustomBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
@@ -25,7 +21,7 @@ class HotelListAdapter(private var hotelList: List<Hotel>) :
     override fun getItemCount() = hotelList.size
 
 
-    override fun onBindViewHolder(holder: HotelListAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = hotelList[position]
         with(holder) {
             with(currentItem) {

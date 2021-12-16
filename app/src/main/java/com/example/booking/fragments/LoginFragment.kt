@@ -52,13 +52,6 @@ class LoginFragment : Fragment() {
 
             CoroutineScope(Dispatchers.IO).launch {
 
-
-//                val user: UserMin = UserMin("olekss@gmail.com", "qaqaqa")
-//                val decodedJsonResult = httpApiService.login(user)
-//                val decodedJsonResult2 = httpApiService.register(user)
-
-//                val userMax = decodedJsonResult
-//                val userreg = decodedJsonResult2
                 withContext(Dispatchers.Main){
                     Log.d("HttpString", "userMax")
 //                    Log.d("HttpString", "$userreg")

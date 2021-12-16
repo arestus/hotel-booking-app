@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.booking.BookingApp
@@ -18,6 +19,7 @@ import com.example.booking.data.ReservationMin
 import com.example.booking.data.UserMin
 import com.example.booking.databinding.FragmentLoginBinding
 import com.example.booking.databinding.FragmentSpecificHotelBinding
+import com.example.booking.fragments.list.htelslist.HotelsListFragmentDirections
 import com.example.booking.viewmodels.HotelViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
@@ -64,9 +66,13 @@ class SpecificHotelFragment : Fragment() {
         binding.specificHotelBack.setOnClickListener {
             findNavController().navigate(R.id.action_specificHotelFragment_to_hotelsListFragment)
         }
-        binding.createReservation.setOnClickListener {
-            findNavController().navigate(R.id.action_specificHotelFragment_to_createReservationFragment)
-//            createReservation(args.currentHotel.id, args.currentHotel.)
+//        binding.createReservation.setOnClickListener {
+//            findNavController().navigate(R.id.action_specificHotelFragment_to_createReservationFragment)
+////            createReservation(args.currentHotel.id, args.currentHotel.)
+//        }
+        binding.createReservation.setOnClickListener { view ->
+            val action = SpecificHotelFragmentDirections.actionSpecificHotelFragmentToCreateReservationFragment(args.currentHotel)
+            Navigation.findNavController(view).navigate(action)
         }
 
         setHasOptionsMenu(true)
