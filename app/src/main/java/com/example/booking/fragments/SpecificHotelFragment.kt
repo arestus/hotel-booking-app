@@ -44,36 +44,36 @@ class SpecificHotelFragment : Fragment() {
 
 //HtmlCompat.fromHtml("Price per room: <b> ${args.currentHotel.pricePerNight} <b>", HtmlCompat.FROM_HTML_MODE_LEGACY)
         (requireActivity() as MainActivity).supportActionBar?.title = args.currentHotel.name
-        binding.reservedByPeople.text = "Already reserved by ${args.currentHotel.reservedByPeople} people"
-        binding.pricePerRoom.text = HtmlCompat.fromHtml("Price per room: <b> ${args.currentHotel.pricePerNight}$ <b>", HtmlCompat.FROM_HTML_MODE_LEGACY)
-        binding.roomLeft.text = HtmlCompat.fromHtml("Rooms left:<b> ${args.currentHotel.roomsLeft} <b>", HtmlCompat.FROM_HTML_MODE_LEGACY)
+        binding.reservedByPeople.text =
+            "Already reserved by ${args.currentHotel.reservedByPeople} people"
+        binding.pricePerRoom.text = HtmlCompat.fromHtml(
+            "Price per room: <b> ${args.currentHotel.pricePerNight}$ <b>",
+            HtmlCompat.FROM_HTML_MODE_LEGACY
+        )
+        binding.roomLeft.text = HtmlCompat.fromHtml(
+            "Rooms left:<b> ${args.currentHotel.roomsLeft} <b>",
+            HtmlCompat.FROM_HTML_MODE_LEGACY
+        )
 //        binding.localAttraction.text = "Rooms left: ${args.currentHotel.roomsLeft}"
 //        binding.localAttractionDescription.text = "Rooms left: ${args.currentHotel.roomsLeft}"
-        Picasso.get().load(args.currentHotel.url).into( binding.hotelPhoto)
-//
+        Picasso.get().load(args.currentHotel.url).into(binding.hotelPhoto)
+//        binding.UpdateButton.setOnClickListener {
+//            updateData()
+//        }
+        binding.hotelNameTitle.text = args.currentHotel.name
+        binding.specificHotelBack.setOnClickListener {
+            findNavController().navigate(R.id.action_specificHotelFragment_to_hotelsListFragment)
+        }
         binding.createReservation.setOnClickListener {
             findNavController().navigate(R.id.action_specificHotelFragment_to_createReservationFragment)
 //            createReservation(args.currentHotel.id, args.currentHotel.)
         }
+
         setHasOptionsMenu(true)
         return binding.root
     }
-//
-//    private fun createReservation(hotelId: Int, count: Int) {
-//        val myApplication = activity?.application as BookingApp
-//        val httpApiService = myApplication.httpApiService
-////        val dao = BookingDatabase.getInstance().bookingDao().
-//        CoroutineScope(Dispatchers.IO).launch {
-//
-//            httpApiService.createReservation(ReservationMin(hotelId, count))
-////
-//            withContext(Dispatchers.Main){
-//                Log.d("BookingDBString", "DB Filled")
-//
-//            }
-//
-//        }
-//        TODO("Not yet implemented")
-//    }
 }
+
+
+
 
