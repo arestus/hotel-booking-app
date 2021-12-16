@@ -11,6 +11,7 @@
         android:id="@+id/hotelPhoto"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -18,8 +19,11 @@
         android:id="@+id/pricePerNight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_marginTop="8dp"
+        android:text="@string/pricePerNight"
+        android:textColor="#cccccc"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/roomsLeft"
         app:layout_constraintTop_toBottomOf="@+id/roomsLeft" />
 
@@ -27,9 +31,13 @@
         android:id="@+id/hotelName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="40dp"
+
         android:text="TextView"
+        android:textColor="#b45f06"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/hotelPhoto"
         app:layout_constraintTop_toTopOf="@+id/hotelPhoto" />
 
@@ -37,8 +45,11 @@
         android:id="@+id/roomsLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textColor="#b45f06"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/hotelName"
         app:layout_constraintTop_toBottomOf="@+id/hotelName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+

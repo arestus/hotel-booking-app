@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/hotelPhoto"
-        android:layout_width="321dp"
-        android:layout_height="285dp"
         android:layout_marginTop="55dp"
+        android:layout_width="330dp"
+        android:layout_height="363dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,6 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/hotelPhoto"
         app:layout_constraintTop_toBottomOf="@+id/hotelPhoto" />
@@ -29,6 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/roomLeft"
         app:layout_constraintTop_toBottomOf="@+id/roomLeft" />
@@ -38,26 +42,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/pricePerRoom"
         app:layout_constraintTop_toBottomOf="@+id/pricePerRoom" />
 
+<!--    <TextView-->
+<!--        android:id="@+id/localAttraction"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:textColor="@color/orange"-->
+<!--        android:textSize="16sp"-->
+<!--        android:text="TextView"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/roomLeft"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/reservedByPeople" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/localAttractionDescription"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:textColor="@color/orange"-->
+<!--        android:textSize="16sp"-->
+<!--        android:text="TextView"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/roomLeft"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/localAttraction" />-->
+
     <TextView
-        android:id="@+id/localAttraction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/roomLeft"
+        android:id="@+id/createReservation"
+        android:layout_width="321dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/orange_button"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/create_reservation"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reservedByPeople" />
-    <TextView
-        android:id="@+id/localAttractionDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/roomLeft"
-        app:layout_constraintTop_toBottomOf="@+id/localAttraction" />
 
     <ImageView
         android:id="@+id/specificHotelBack"

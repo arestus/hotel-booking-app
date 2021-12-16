@@ -1,19 +1,29 @@
 package com.example.booking.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.booking.BookingApp
 import com.example.booking.MainActivity
 import com.example.booking.R
+import com.example.booking.data.BookingDatabase
+import com.example.booking.data.ReservationMin
+import com.example.booking.data.UserMin
 import com.example.booking.databinding.FragmentLoginBinding
 import com.example.booking.databinding.FragmentSpecificHotelBinding
 import com.example.booking.viewmodels.HotelViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class SpecificHotelFragment : Fragment() {
 
@@ -30,32 +40,40 @@ class SpecificHotelFragment : Fragment() {
         _binding = FragmentSpecificHotelBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         mUserViewModel = ViewModelProvider(this)[HotelViewModel::class.java]
-//
+
+
+//HtmlCompat.fromHtml("Price per room: <b> ${args.currentHotel.pricePerNight} <b>", HtmlCompat.FROM_HTML_MODE_LEGACY)
         (requireActivity() as MainActivity).supportActionBar?.title = args.currentHotel.name
-        R.string.fragment_specific_hotel
-        binding.reservedByPeople.text = args.currentHotel.reservedByPeople.toString()
-        binding.pricePerRoom.text = args.currentHotel.pricePerNight.toString()
-        binding.roomLeft.text = args.currentHotel.roomsLeft.toString()
-        Picasso.get().load(args.currentHotel.url).into( binding.hotelPhoto)
+        binding.reservedByPeople.text =
+            "Already reserved by ${args.currentHotel.reservedByPeople} people"
+        binding.pricePerRoom.text = HtmlCompat.fromHtml(
+            "Price per room: <b> ${args.currentHotel.pricePerNight}$ <b>",
+            HtmlCompat.FROM_HTML_MODE_LEGACY
+        )
+        binding.roomLeft.text = HtmlCompat.fromHtml(
+            "Rooms left:<b> ${args.currentHotel.roomsLeft} <b>",
+            HtmlCompat.FROM_HTML_MODE_LEGACY
+        )
+//        binding.localAttraction.text = "Rooms left: ${args.currentHotel.roomsLeft}"
+//        binding.localAttractionDescription.text = "Rooms left: ${args.currentHotel.roomsLeft}"
+        Picasso.get().load(args.currentHotel.url).into(binding.hotelPhoto)
 //        binding.UpdateButton.setOnClickListener {
 //            updateData()
 //        }
         binding.hotelNameTitle.text = args.currentHotel.name
-        binding.specificHotelBack.setOnClickListener{
+        binding.specificHotelBack.setOnClickListener {
             findNavController().navigate(R.id.action_specificHotelFragment_to_hotelsListFragment)
         }
+        binding.createReservation.setOnClickListener {
+            findNavController().navigate(R.id.action_specificHotelFragment_to_createReservationFragment)
+//            createReservation(args.currentHotel.id, args.currentHotel.)
+        }
+
         setHasOptionsMenu(true)
         return binding.root
-//         val urltmp = "https://www.gannett-cdn.com/-mm-/f85d715f4ef18e245988237e803cdef2db1daf68/c=0-255-4256-2656/local/-/media/USATODAY/test/2013/10/25/1382729502000-160857233.jpg"
-//        Picasso.get().load(urltmp).into( binding.hotelPhoto)
-
-
-
-
-
-
-//        return binding.root
     }
-
-
 }
+
+
+
+
