@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,7 +31,7 @@ class LoginFragment : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val myApplication = activity?.application as BookingApp
         val httpApiService = myApplication.httpApiService
-
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
         binding.textViewRegister.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
             binding.progressBarBackground.visibility = View.VISIBLE
