@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.booking.R
 import com.example.booking.databinding.FragmentLoginHistoryBinding
@@ -40,6 +41,10 @@ class LoginHistoryFragment : Fragment() {
         mUserViewModel.historyList.observe(viewLifecycleOwner, { user ->
             adapter.setData(user)
         })
+        binding.loginHistoryBack.setOnClickListener{
+            findNavController().navigate(R.id.action_loginHistoryFragment_to_profileFragment)
+        }
+        binding.loginHistoryTitle.text = "All Your Options"
         setHasOptionsMenu(true)
         return binding.root
     }

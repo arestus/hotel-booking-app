@@ -6,15 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.booking.R
-import com.example.booking.databinding.FragmentHotelsListBinding
 import com.example.booking.databinding.FragmentOtherUsersBinding
-import com.example.booking.fragments.list.HotelListAdapter
-import com.example.booking.viewmodels.HotelViewModel
 import com.example.booking.viewmodels.OtherUsersViewModel
-import java.util.*
-import kotlin.concurrent.schedule
+
 
 class OtherUsersFragment : Fragment() {
     private lateinit var mUserViewModel: OtherUsersViewModel
@@ -36,6 +33,11 @@ class OtherUsersFragment : Fragment() {
         mUserViewModel.usersList.observe(viewLifecycleOwner, { user ->
             adapter.setData(user)
         })
+        binding.otherUsersBack.setOnClickListener{
+            findNavController().navigate(R.id.action_otherUsersFragment_to_hotelsListFragment)
+        }
+        binding.otherUsersTitle.text = "All Your Options"
+        setHasOptionsMenu(true)
         setHasOptionsMenu(true)
         return binding.root
     }

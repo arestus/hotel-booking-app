@@ -44,12 +44,15 @@
     </fragment>
     <fragment
         android:id="@+id/hotelsListFragment"
-        android:name="com.example.booking.fragments.list.HotelsListFragment"
+        android:name="com.example.booking.fragments.list.htelslist.HotelsListFragment"
         android:label="All Your options"
         tools:layout="@layout/fragment_hotels_list" >
         <action
             android:id="@+id/action_hotelsListFragment_to_specificHotelFragment"
             app:destination="@id/specificHotelFragment" />
+        <action
+            android:id="@+id/action_hotelsListFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/specificHotelFragment"
@@ -79,6 +82,9 @@
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_fragment_hotels_list"
+            app:destination="@id/hotelsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/changeEmailFragment"
@@ -93,7 +99,11 @@
         android:id="@+id/myReservationFragment"
         android:name="com.example.booking.fragments.MyReservationFragment"
         android:label="fragment_my_resrvation"
-        tools:layout="@layout/fragment_my_resrvation" />
+        tools:layout="@layout/fragment_my_resrvation">
+        <action
+            android:id="@+id/action_myReservationFragment_to_hotelsListFragment"
+            app:destination="@id/hotelsListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createReservationFragment"
         android:name="com.example.booking.fragments.CreateReservationFragment"
@@ -107,7 +117,11 @@
         android:id="@+id/otherUsersFragment"
         android:name="com.example.booking.fragments.otherUser.OtherUsersFragment"
         android:label="fragment_other_users"
-        tools:layout="@layout/fragment_other_users" />
+        tools:layout="@layout/fragment_other_users">
+        <action
+            android:id="@+id/action_otherUsersFragment_to_hotelsListFragment"
+            app:destination="@id/hotelsListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginHistoryFragment"
         android:name="com.example.booking.fragments.loginHistory.LoginHistoryFragment"
@@ -126,7 +140,7 @@
             android:id="@+id/action_drawerMenuFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_drawerMenuFragment_to_myResrvationFragment"
+            android:id="@+id/action_drawerMenuFragment_to_myReservationFragment"
             app:destination="@id/myReservationFragment" />
         <action
             android:id="@+id/action_drawerMenuFragment_to_otherUsersFragment"
