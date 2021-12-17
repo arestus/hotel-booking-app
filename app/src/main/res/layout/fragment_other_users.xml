@@ -34,6 +34,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+
         android:id="@+id/otherUsersTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,4 +57,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/other_user_row" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
