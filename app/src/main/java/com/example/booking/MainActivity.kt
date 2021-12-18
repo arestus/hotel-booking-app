@@ -1,11 +1,13 @@
 package com.example.booking
 
-
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import androidx.core.view.GravityCompat
+import androidx.core.widget.ImageViewCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -14,23 +16,17 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 
 import androidx.navigation.ui.setupWithNavController
-import com.example.booking.data.Hotel
-import com.example.booking.data.LocalUser
-import com.example.booking.data.LoginHistory
 
 import com.example.booking.data.*
 
 
 import com.example.booking.databinding.ActivityMainBinding
-import com.google.android.material.navigation.NavigationView
+import com.example.booking.viewmodels.ImageStorageManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
 
-import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,13 +35,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-//      setContentView(R.layout.activity_main)
 
 
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -57,10 +54,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         FillLocalDB()
-//        setupActionBarWithNavController(findNavController(R.id.fragmentContainerView))
-
-
-
     }
 
     private fun FillLocalDB(): BookingDao {
@@ -103,6 +96,9 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             drawerLayout.openDrawer(GravityCompat.START)
+            var currentAvatar = ImageStorageManager.getImageFromInternalStorage(this.applicationContext, "profile")
+            var drawerAvatar = findViewById<ImageView>(R.id.userPhoto)
+            drawerAvatar.setImageBitmap(currentAvatar)
         }
     }
 

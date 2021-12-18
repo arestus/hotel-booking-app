@@ -32,6 +32,7 @@ class ProfileFragment : Fragment() {
         private const val CAMERA_REQUEST_CODE = 2
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,6 +57,7 @@ class ProfileFragment : Fragment() {
 
         val currentPhoto = ImageStorageManager.getImageFromInternalStorage(this.requireContext(), "profile")
         binding.profileUserPhoto.setImageBitmap(currentPhoto)
+
         //return inflater.inflate(R.layout.fragment_profile, container, false)
         return binding.root
     }
