@@ -39,21 +39,21 @@ class CreateReservationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         Log.d("test_args", "$args")
         _binding = FragmentCreateReservationBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         mUserViewModel = ViewModelProvider(this)[HotelViewModel::class.java]
 
         var days = 0
-
+        binding.minusView.isEnabled =false
 
         binding.addView.setOnClickListener {
 
             days++
             if (days > 0) {
-
-                binding.minusView.iconTint = ColorStateList.valueOf(R.color.orange);
+                binding.minusView.isEnabled =true
+//                binding.minusView.setBackgroundResource(R.drawable.red_button)
 
             }
             updateData(days)
@@ -66,7 +66,8 @@ class CreateReservationFragment : Fragment() {
                 days--
                 if (days == 0) {
                     Log.d("TEST", "$days")
-                    binding.minusView.iconTint = ColorStateList.valueOf(R.color.white);
+                    binding.minusView.isEnabled =false
+//                    binding.minusView.iconTint = ColorStateList.valueOf(R.color.white);
                 }
             }
             updateData(days)
