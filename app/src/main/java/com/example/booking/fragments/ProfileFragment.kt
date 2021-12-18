@@ -1,7 +1,6 @@
 package com.example.booking.fragments
 
 import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -14,22 +13,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.booking.R
-import com.example.booking.databinding.FragmentHotelsListBinding
+
 import com.example.booking.databinding.FragmentProfileBinding
-import java.util.jar.Manifest
-import androidx.test.core.app.ApplicationProvider.getApplicationContext
-
-import android.content.ContextWrapper
-import androidx.test.core.app.ApplicationProvider
-import java.lang.Exception
-
-import android.graphics.BitmapFactory
-import android.widget.ImageView
-import java.io.*
+import com.example.booking.viewmodels.ImageStorageManager
 
 
 class ProfileFragment : Fragment() {
@@ -63,7 +54,8 @@ class ProfileFragment : Fragment() {
             }
         }
 
-
+        val currentPhoto = ImageStorageManager.getImageFromInternalStorage(this.requireContext(), "profile")
+        binding.profileUserPhoto.setImageBitmap(currentPhoto)
         //return inflater.inflate(R.layout.fragment_profile, container, false)
         return binding.root
     }
@@ -91,7 +83,9 @@ class ProfileFragment : Fragment() {
         if(resultCode == Activity.RESULT_OK){
             if(requestCode == CAMERA_REQUEST_CODE){
                 val thumbNail: Bitmap = data!!.extras!!.get("data") as Bitmap
-
+                ImageStorageManager.saveToInternalStorage(this.requireContext(), thumbNail, "profile")
+                val savedPhoto = ImageStorageManager.getImageFromInternalStorage(this.requireContext(), "profile")
+                binding.profileUserPhoto.setImageBitmap(savedPhoto)
             }
         }
     }
