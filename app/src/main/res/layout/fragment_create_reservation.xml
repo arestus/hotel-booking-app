@@ -27,13 +27,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/orange_button"
-        app:backgroundTint="@color/orange"
+        app:backgroundTint="@color/button_color"
         android:gravity="center"
         android:textAllCaps="true"
         app:icon="@drawable/ic_add"
         app:iconGravity="textStart"
         app:iconPadding="0dp"
-        app:iconTint="#ffffff"
         app:layout_constraintStart_toEndOf="@+id/daysView"
         app:layout_constraintTop_toTopOf="@+id/daysView" />
 
@@ -72,21 +71,20 @@
 
 
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/minusView"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/orange_button"
-        app:backgroundTint="@color/light_grey"
+        android:background="@drawable/red_button"
+        app:backgroundTint="@color/button_color"
         android:gravity="center"
-        android:state_enabled="true"
+        android:state_enabled="false"
         android:textAllCaps="true"
         app:icon="@drawable/ic_minus"
+        app:iconTint="@color/icon_color"
         app:iconGravity="textStart"
         app:iconPadding="0dp"
-        app:cornerRadius="12dp"
-        app:iconTint="#ffffff"
         app:layout_constraintEnd_toStartOf="@+id/daysView"
         app:layout_constraintTop_toTopOf="@+id/daysView" />
 
