@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         session = SessionManager(applicationContext)
-        val del = deleteDatabase("BookingDataBase")
+        //val del = deleteDatabase("BookingDataBase")
 
         drawerLayout = findViewById(R.id.drawer_layout)
         navController = findNavController(R.id.fragmentContainerView)
