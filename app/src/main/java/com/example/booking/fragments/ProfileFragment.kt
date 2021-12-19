@@ -16,11 +16,16 @@ import androidx.appcompat.app.AppCompatActivity
 
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.contains
 import androidx.navigation.fragment.findNavController
+import com.avatarfirst.avatargenlib.AvatarConstants
+import com.avatarfirst.avatargenlib.AvatarGenerator
 import com.example.booking.R
 
 import com.example.booking.databinding.FragmentProfileBinding
 import com.example.booking.viewmodels.ImageStorageManager
+import com.squareup.picasso.Picasso
+import java.io.File
 
 
 class ProfileFragment : Fragment() {
@@ -55,8 +60,52 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        val currentPhoto = ImageStorageManager.getImageFromInternalStorage(this.requireContext(), "profile")
-        binding.profileUserPhoto.setImageBitmap(currentPhoto)
+
+
+//        if(){
+//            Picasso.get()
+//                .load("https://brokenfortest")
+//                .resize(150, 150)
+//                .placeholder(AvatarGenerator.avatarImage(this.requireContext(), 200, AvatarConstants.CIRCLE, binding.emailTextView.text.toString()))
+//                .into(binding.profileUserPhoto)
+//        } else {
+//            val currentPhoto = ImageStorageManager.getImageFromInternalStorage(this.requireContext(), "profile")
+//            binding.profileUserPhoto.setImageBitmap(currentPhoto)
+//        }
+
+        //val currentPhoto = null
+//        if(currentPhoto != null){
+//            binding.profileUserPhoto.setImageBitmap(currentPhoto)
+//        } else {
+//            Picasso.get()
+//                .load("https://brokenfortest")
+//                .resize(150, 150)
+//                .placeholder(AvatarGenerator.avatarImage(this.requireContext(), 200, AvatarConstants.CIRCLE, binding.emailTextView.text.toString()))
+//                .into(binding.profileUserPhoto)
+//        }
+
+        val yourFilePath = requireContext().filesDir.toString() + "/" + "profile"
+        val yourFile = File(yourFilePath)
+
+        if(!yourFile.isFile){
+            Picasso.get()
+                .load("https://brokenfortest")
+                .resize(150, 150)
+                .placeholder(AvatarGenerator.avatarImage(this.requireContext(), 200, AvatarConstants.CIRCLE, binding.emailTextView.text.toString()))
+                .into(binding.profileUserPhoto)
+        } else {
+            val currentPhoto = ImageStorageManager.getImageFromInternalStorage(this.requireContext(), "profile")
+            binding.profileUserPhoto.setImageBitmap(currentPhoto)
+        }
+
+//        binding.deleteAvatar.setOnClickListener {
+//            ImageStorageManager.deleteImageFromInternalStorage(this.requireContext(), "profile")
+//            Picasso.get()
+//                .load("https://brokenfortest")
+//                .resize(150, 150)
+//                .placeholder(AvatarGenerator.avatarImage(this.requireContext(), 200, AvatarConstants.CIRCLE, binding.emailTextView.text.toString()))
+//                .into(binding.profileUserPhoto)
+//        }
 
         //return inflater.inflate(R.layout.fragment_profile, container, false)
         return binding.root
