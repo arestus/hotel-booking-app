@@ -12,5 +12,5 @@ data class User(
     val email: String = "",
     var password: String? = null,
     val token: String = "",
-    val memberSince: String = ""
+    val memberSince: Long = 0
 )

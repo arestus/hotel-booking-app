@@ -6,8 +6,7 @@ import androidx.room.*
 @Dao
 interface BookingDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUser(user: User)
+
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllHotels(vararg hotels: Hotel)
@@ -35,9 +34,6 @@ interface BookingDao {
 
     @Query("SELECT * FROM loginHistory")
      fun getLoginHistory(): LiveData<List<LoginHistory>>
-
-    @Query("SELECT * FROM users WHERE id = (SELECT MAX(id) FROM users)")
-    suspend fun getUser(): User
 
     @Query("SELECT * FROM reservations JOIN hotels ON reservations.hotelId=hotels.id ")
      fun fullReservation(): LiveData<List<Reservation>>

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_splashScreenFragment_to_drawerMenuFragment"
             app:destination="@id/drawerMenuFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_hotelsListFragment"
+            app:destination="@id/hotelsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

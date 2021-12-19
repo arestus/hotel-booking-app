@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration: AppBarConfiguration
-
+    private lateinit var session: SessionManager
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-
+        session = SessionManager(applicationContext)
+        val del = deleteDatabase("BookingDataBase")
 
         drawerLayout = findViewById(R.id.drawer_layout)
         navController = findNavController(R.id.fragmentContainerView)
@@ -58,52 +59,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        FillLocalDB()
+
     }
-fun test(){
-    Log.d("test","test")
-}
-     fun FillLocalDB(): BookingDao {
-        val myApplication = application as BookingApp
-        val httpApiService = myApplication.httpApiService
-
-        val dao = BookingDatabase.getInstance(this).bookingDao()
-        CoroutineScope(Dispatchers.IO).launch {
-            val test = dao.getHotels()
-            Log.d("BookingDBString333", "$test")
-
-            //val deleteDB = deleteDatabase("BookingDB");
-            var user = httpApiService.login(UserMin("alina@gmail.com", "qaqaqa"))
-            val hotels = httpApiService.getHotels().hotels?.toTypedArray() ?: emptyArray()
-            val reservations = httpApiService.getReservations().reservations?.toTypedArray() ?: emptyArray()
-            val localUsers = httpApiService.getLocalUsers().users?.toTypedArray() ?: emptyArray()
-            val loginHistory = httpApiService.getLoginHistory().loginEntries?.toTypedArray() ?: emptyArray()
-            if (!hotels.isNullOrEmpty())
-                dao.insertAllHotels(*hotels)
-            if (user != null)
-                dao.insertUser(user)
-            if (!reservations.isNullOrEmpty() && user != null && !hotels.isNullOrEmpty()){
-//                    val ttt= httpApiService.deleteReservation(20)
-//                Log.d("DEl rserv", "$ttt")
-                dao.delReservation()
-                dao.insertAllReservations(*reservations)
-            }
-
-            if (!localUsers.isNullOrEmpty())
-                dao.insertAllLocalUsers(*localUsers)
-            if (!loginHistory.isNullOrEmpty())
-                dao.insertAllLoginHistory(*loginHistory)
-
-
-            withContext(Dispatchers.Main){
-                Log.d("BookingDBString", "DB Filled")
-
-            }
-        }
-        return dao;
-    }
-
-
 
     fun openCloseNavigationDrawer(view: View) {
         val yourFilePath = applicationContext.filesDir.toString() + "/" + "profile"
