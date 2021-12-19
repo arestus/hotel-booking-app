@@ -62,7 +62,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+
     fun openCloseNavigationDrawer(view: View) {
+        session = SessionManager(applicationContext)
+        findViewById<TextView>(R.id.userEmail).text = (session).GetEmail()
         val yourFilePath = applicationContext.filesDir.toString() + "/" + "profile"
         val yourFile = File(yourFilePath)
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -71,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
             var drawerAvatar = findViewById<ImageView>(R.id.userPhoto)
             var userEmail = findViewById<TextView>(R.id.userEmail)
-            if(!yourFile.isFile) {
+            if (!yourFile.isFile) {
                 Picasso.get()
                     .load("https://brokenfortest")
                     .resize(150, 150)
@@ -86,7 +90,10 @@ class MainActivity : AppCompatActivity() {
 //            var currentAvatar = ImageStorageManager.getImageFromInternalStorage(this.applicationContext, "profile")
 //            drawerAvatar.setImageBitmap(currentAvatar)
             } else {
-                val currentPhoto = ImageStorageManager.getImageFromInternalStorage(this.applicationContext, "profile")
+                val currentPhoto = ImageStorageManager.getImageFromInternalStorage(
+                    this.applicationContext,
+                    "profile"
+                )
                 drawerAvatar.setImageBitmap(currentPhoto)
             }
         }

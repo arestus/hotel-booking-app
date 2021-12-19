@@ -39,7 +39,7 @@ class LoginHistoryFragment : Fragment() {
         binding.loginHistoryBack.setOnClickListener{
             findNavController().navigate(R.id.action_loginHistoryFragment_to_profileFragment)
         }
-        binding.loginHistoryTitle.text = "All Your Options"
+        binding.loginHistoryTitle.text = "Login history"
         setHasOptionsMenu(true)
         return binding.root
     }

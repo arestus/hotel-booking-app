@@ -3,17 +3,18 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/profileFragment"
+
             android:title="Profile"
-            android:icon="@drawable/ic_drawer_profile"
             />
         <item
             android:id="@+id/myReservationFragment"
             android:title="My reservations"
-            android:icon="@drawable/ic_drawer_list"/>
+            />
         <item
             android:id="@+id/otherUsersFragment"
             android:title="Other users"
-            android:icon="@drawable/ic_drawer_users"/>
+
+            />
     </group>
 
 </menu>

@@ -25,7 +25,6 @@ class BookingApp : Application() {
         httpApiService =
             if (token.isNullOrEmpty()) initHttpApiService()
             else initHttpApiService(token)
-        session.LogoutUser()
     }
 
     private fun initHttpApiService(authToken: String? = null): HttpApiService {

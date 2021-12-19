@@ -101,7 +101,6 @@ class LoginFragment : Fragment() {
                             requireActivity().runOnUiThread {
                                 binding.progressBar.visibility = View.INVISIBLE
                                 binding.progressBarBackground.visibility = View.INVISIBLE
-
                                 if (failedLogin == 200)
                                 {
                                     (session as SessionManager).createLoginSession(loggedUser.token, loggedUser.email, loggedUser.memberSince)
@@ -155,6 +154,5 @@ class LoginFragment : Fragment() {
                 Log.d("BookingDBString", "DB Filled")
             }
         }
-
     }
 }
