@@ -27,5 +27,8 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         android:verticalScrollbarPosition="right"
-        app:menu="@menu/drawer_menu" />
+        app:menu="@menu/drawer_menu"
+        app:itemTextColor="@color/orange"
+        app:itemTextAppearance="?android:attr/textAppearanceLarge"
+        />
 </androidx.drawerlayout.widget.DrawerLayout>
