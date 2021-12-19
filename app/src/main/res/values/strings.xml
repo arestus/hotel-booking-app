@@ -16,4 +16,8 @@
     <string name="create_reservation">Create reservation</string>
     <string name="confirm_reservation">Confirm reservation</string>
     <string name="emailChange">Input new email</string>
+    <string name="accountDeleteConfirm">Confirm account delete</string>
+    <string name="accountToDeleteInfo1">Account with email
+</string>
+    <string name="accountToDeleteInfo2">will be permanently deleted</string>
 </resources>

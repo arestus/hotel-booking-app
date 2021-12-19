@@ -63,6 +63,12 @@ class ProfileFragment : Fragment() {
         binding.changeEmailConfirm.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_changeEmailFragment)
         }
+        binding.loginHistoryTextView.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_loginHistoryFragment)
+        }
+        binding.deleteAccountTextView.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_deleteAccountFragment)
+        }
 
 
 
