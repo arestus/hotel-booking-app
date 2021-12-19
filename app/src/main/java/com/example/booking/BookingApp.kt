@@ -15,12 +15,16 @@ import retrofit.GsonConverterFactory
 import java.io.IOException
 
 class BookingApp : Application() {
-    public lateinit var httpApiService: HttpApiService
+    lateinit var httpApiService: HttpApiService
+    lateinit var session: SessionManager
 
     override fun onCreate() {
         super.onCreate()
-
-        httpApiService = initHttpApiService("27f029be-088a-4c49-b96a-858b62fdeea5")
+        session = SessionManager(applicationContext)
+        val token = session.getToken()
+        httpApiService =
+            if (token.isNullOrEmpty()) initHttpApiService()
+            else initHttpApiService(token)
     }
 
     private fun initHttpApiService(authToken: String? = null): HttpApiService {
