@@ -3,6 +3,7 @@ package com.example.booking.fragments
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -73,12 +74,13 @@ class LoginFragment : Fragment() {
 
             val maskedEmail =
                 if (userEmail.isNullOrEmpty()) ""
-                else userEmail//.lowercase()
+                else userEmail.lowercase()
 
             val maskedPassword =
                 if (userPassword.isNullOrEmpty()) ""
                 else userPassword
 
+            if (userEmail.isEmailValid())
             CoroutineScope(Dispatchers.IO).launch {
 
                 val user: UserMin = UserMin(maskedEmail, maskedPassword)
@@ -87,14 +89,11 @@ class LoginFragment : Fragment() {
 
                 try {
                     loggedUser = httpApiService.login(user)
-                }
 
-                catch (e: HttpException) {
-                    println(" +++++++++++++++ Rethrowing HttpException 2 : ${e.code()}")
+                }  catch (e: HttpException) {
                     failedLogin = e.code()
 
                 }  finally {
-
                     withContext(Dispatchers.Main){
 
                         Timer("Test", false).schedule(2000) {
@@ -113,7 +112,11 @@ class LoginFragment : Fragment() {
                                     }
                                 }
                                 else {
-                                    Toast.makeText(myApplication, "Oops! Sorry, wrong username or password", 3000).show()
+                                    Toast.makeText(
+                                        myApplication,
+                                        "Oops! Sorry, wrong username or password",
+                                        3000
+                                    ).show()
                                     findNavController().navigate(R.id.action_loginFragment_self)
                                 }
                             }
@@ -121,15 +124,25 @@ class LoginFragment : Fragment() {
 
                     }
                 }
+            } else {
+                binding.progressBar.visibility = View.INVISIBLE
+                binding.progressBarBackground.visibility = View.INVISIBLE
+
+                Toast.makeText(
+                    myApplication,
+                    "Incorrect Email input. Try again!",
+                    2000
+                ).show()
             }
-
-
         }
-
         return binding.root
     }
 
-    fun fillLocalDB(httpApiService: HttpApiService) {
+    private fun String.isEmailValid(): Boolean {
+        return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+    }
+
+    private fun fillLocalDB(httpApiService: HttpApiService) {
 
         val dao = BookingDatabase.getInstance(requireActivity()).bookingDao()
 
@@ -151,7 +164,7 @@ class LoginFragment : Fragment() {
                 dao.insertAllLoginHistory(*loginHistory)
 
             withContext(Dispatchers.Main){
-                Log.d("BookingDBString", "DB Filled")
+                Log.d("BookingDBString", "DB Filling Succeed")
             }
         }
     }

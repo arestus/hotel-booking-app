@@ -5,9 +5,7 @@ import androidx.room.PrimaryKey
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Entity(tableName = "users")
 data class User(
-    @PrimaryKey
     val id: Int = 0,
     val email: String = "",
     var password: String? = null,

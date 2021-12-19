@@ -6,8 +6,6 @@ import androidx.room.*
 @Dao
 interface BookingDao {
 
-
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllHotels(vararg hotels: Hotel)
 
@@ -37,5 +35,4 @@ interface BookingDao {
 
     @Query("SELECT * FROM reservations JOIN hotels ON reservations.hotelId=hotels.id ")
      fun fullReservation(): LiveData<List<Reservation>>
-
 }

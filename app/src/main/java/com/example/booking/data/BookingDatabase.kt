@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-        User::class,
         Hotel::class,
         Reservation::class,
         LoginHistory::class,

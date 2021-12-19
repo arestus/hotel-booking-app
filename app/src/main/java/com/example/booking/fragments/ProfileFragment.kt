@@ -66,8 +66,8 @@ class ProfileFragment : Fragment() {
                 )
             }
         }
-        binding.emailTextView.text = (session as SessionManager).GetEmail()
-        binding.memberSinceTextView.text = "Member since:  " + getDateTime((session as SessionManager).GetTime())
+        binding.emailTextView.text = (session as SessionManager).getEmail()
+        binding.memberSinceTextView.text = "Member since:  " + getDateTime((session as SessionManager).getTime())
 
         binding.changeEmailConfirm.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_changeEmailFragment)
@@ -79,7 +79,7 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_profileFragment_to_deleteAccountFragment)
         }
         binding.logOutTextView.setOnClickListener {
-            (session as SessionManager).LogoutUser()
+            (session as SessionManager).logoutUser()
             findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
         }
 

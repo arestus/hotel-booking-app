@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class SessionManager : SharedPreferences {
     var pref: SharedPreferences
-    var edior: SharedPreferences.Editor
+    var editor: SharedPreferences.Editor
     var context: Context
     var PRIVATE_MODE: Int = 0
 
@@ -13,21 +13,21 @@ class SessionManager : SharedPreferences {
 
         this.context = context
         pref = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        edior = pref.edit()
+        editor = pref.edit()
     }
 
     companion object {
-        val PREF_NAME: String = "token"
-        val IS_LOGIN: String = "isLogin"
-        val KEY_EMAIL: String = "email"
-        val KEY_SINCE: String = "since"
+        const val PREF_NAME: String = "token"
+        const val IS_LOGIN: String = "isLogin"
+        const val KEY_EMAIL: String = "email"
+        const val KEY_SINCE: String = "since"
     }
     fun createLoginSession(token: String, email: String, sinceTime: Long) {
-        edior.putBoolean(IS_LOGIN, true)
-        edior.putString(PREF_NAME, token)
-        edior.putString(KEY_EMAIL, email)
-        edior.putLong(KEY_SINCE, sinceTime)
-        edior.commit()
+        editor.putBoolean(IS_LOGIN, true)
+        editor.putString(PREF_NAME, token)
+        editor.putString(KEY_EMAIL, email)
+        editor.putLong(KEY_SINCE, sinceTime)
+        editor.commit()
     }
 
     fun checkLogin(): Boolean {
@@ -35,21 +35,21 @@ class SessionManager : SharedPreferences {
         return !this.isLoggedIn()
     }
 
-    fun LogoutUser() {
-        edior.clear()
-        edior.apply()
+    fun logoutUser() {
+        editor.clear()
+        editor.apply()
     }
 
     fun editEmail(email: String) {
-        edior.putString(KEY_EMAIL , email)
-        edior.apply()
+        editor.putString(KEY_EMAIL , email)
+        editor.apply()
     }
 
-    fun GetEmail(): String {
+    fun getEmail(): String {
         return pref.getString(KEY_EMAIL, "").toString()
     }
 
-    fun GetTime(): String {
+    fun getTime(): String {
         return pref.getLong(KEY_SINCE, 0).toString()
     }
 
