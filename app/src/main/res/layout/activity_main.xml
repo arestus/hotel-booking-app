@@ -25,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-android:verticalScrollbarPosition="right"
+        app:headerLayout="@layout/nav_header"
+        android:verticalScrollbarPosition="right"
         app:menu="@menu/drawer_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

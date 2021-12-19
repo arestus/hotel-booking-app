@@ -10,7 +10,6 @@
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/drawable/ic_add.xml" value="0.14635416666666667" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/drawable/ic_back_button.xml" value="0.23541666666666666" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/drawable/orange_button.xml" value="0.14635416666666667" />
-        <entry key="..\:/Kanini/Android/Booking/app/src/main/res/drawable/red_button.xml" value="0.14635416666666667" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/drawable/shadow.xml" value="0.14375" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/layout/fragment_change_email.xml" value="0.13020833333333334" />
@@ -30,16 +29,18 @@
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/menu/drawer_menu.xml" value="0.13020833333333334" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/menu/test.xml" value="0.12760416666666666" />
         <entry key="..\:/Kanini/Android/Booking/app/src/main/res/menu/test_menu.xml" value="0.152" />
-        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/drawable/box_with_word.xml" value="0.27447916666666666" />
-        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
-        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/fragment_hotels_list.xml" value="0.2717391304347826" />
-        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/fragment_login_history.xml" value="0.25" />
-        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/fragment_my_resrvation.xml" value="0.275" />
-        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/fragment_other_users.xml" value="0.25" />
-        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/fragment_specific_hotel.xml" value="0.2717391304347826" />
-        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/history_item.xml" value="0.15725806451612903" />
-        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/hotel_row_custom.xml" value="0.2717391304347826" />
-        <entry key="..\:/Shared/androids/hotel-booking-app/app/src/main/res/layout/other_user_row.xml" value="0.1" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/layout/activity_main.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/layout/fragment_drawer_menu.xml" value="0.23596014492753623" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/layout/fragment_hotels_list.xml" value="0.23596014492753623" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/layout/fragment_other_users.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/layout/fragment_profile.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/layout/fragment_specific_hotel.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/layout/hotel_row_custom.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/layout/nav_header.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/layout/other_user_row.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/menu/drawer_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/menu/test_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/arest/AndroidStudioProjects/hotel-booking-app/app/src/main/res/xml/file_paths.xml" value="0.24048913043478262" />
       </map>
     </option>
   </component>
