@@ -73,7 +73,7 @@ fun test(){
             Log.d("BookingDBString333", "$test")
 
             //val deleteDB = deleteDatabase("BookingDB");
-            var user = httpApiService.login(UserMin("alina@gmail.com", "qaqaqa"))
+            var user = httpApiService.login(UserMin("arestus@gmail.com", "qaqaqa"))
             val hotels = httpApiService.getHotels().hotels?.toTypedArray() ?: emptyArray()
             val reservations = httpApiService.getReservations().reservations?.toTypedArray() ?: emptyArray()
             val localUsers = httpApiService.getLocalUsers().users?.toTypedArray() ?: emptyArray()

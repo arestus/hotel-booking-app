@@ -20,6 +20,7 @@ import androidx.core.graphics.contains
 import androidx.navigation.fragment.findNavController
 import com.avatarfirst.avatargenlib.AvatarConstants
 import com.avatarfirst.avatargenlib.AvatarGenerator
+import com.example.booking.BookingApp
 import com.example.booking.R
 
 import com.example.booking.databinding.FragmentProfileBinding
@@ -59,6 +60,12 @@ class ProfileFragment : Fragment() {
                 )
             }
         }
+        binding.changeEmailConfirm.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_changeEmailFragment)
+        }
+
+
+
 
 
 

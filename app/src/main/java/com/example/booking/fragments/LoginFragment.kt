@@ -69,17 +69,6 @@ class LoginFragment : Fragment() {
 
         }
 
-        CoroutineScope(Dispatchers.IO).launch {
-//            val user: UserMin = UserMin("alina@gmail.com", "qaqaqa")
-            val decodedJsonResult = httpApiService.getHotels().hotels
-//
-//
-            val userMax = decodedJsonResult
-//
-            withContext(Dispatchers.Main){
-                Log.d("HttpString", "$userMax")
-            }
-        }
 
 
         return binding.root
