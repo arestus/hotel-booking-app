@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -16,17 +18,20 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 
 import androidx.navigation.ui.setupWithNavController
+import com.avatarfirst.avatargenlib.AvatarConstants
+import com.avatarfirst.avatargenlib.AvatarGenerator
 
 import com.example.booking.data.*
 
 
 import com.example.booking.databinding.ActivityMainBinding
 import com.example.booking.viewmodels.ImageStorageManager
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
+import java.io.File
 
 
 class MainActivity : AppCompatActivity() {
@@ -98,14 +103,35 @@ fun test(){
         return dao;
     }
 
+
+
     fun openCloseNavigationDrawer(view: View) {
+        val yourFilePath = applicationContext.filesDir.toString() + "/" + "profile"
+        val yourFile = File(yourFilePath)
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             drawerLayout.openDrawer(GravityCompat.START)
+            var drawerAvatar = findViewById<ImageView>(R.id.userPhoto)
+            var userEmail = findViewById<TextView>(R.id.userEmail)
+            if(!yourFile.isFile) {
+                Picasso.get()
+                    .load("https://brokenfortest")
+                    .resize(150, 150)
+                    .placeholder(
+                        AvatarGenerator.avatarImage(
+                            this.applicationContext,
+                            200,
+                            AvatarConstants.CIRCLE,
+                            userEmail.text.toString()
+                        )
+                    ).into(drawerAvatar)
 //            var currentAvatar = ImageStorageManager.getImageFromInternalStorage(this.applicationContext, "profile")
-//            var drawerAvatar = findViewById<ImageView>(R.id.userPhoto)
 //            drawerAvatar.setImageBitmap(currentAvatar)
+            } else {
+                val currentPhoto = ImageStorageManager.getImageFromInternalStorage(this.applicationContext, "profile")
+                drawerAvatar.setImageBitmap(currentPhoto)
+            }
         }
     }
 
