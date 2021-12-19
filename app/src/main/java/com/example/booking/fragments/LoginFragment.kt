@@ -88,45 +88,39 @@ class LoginFragment : Fragment() {
                 try {
                     loggedUser = httpApiService.login(user)
                 }
-                catch (e: CancellationException) {
-                    println(" +++++++++++++++ Rethrowing HttpException 1 : $")
-                    failedLogin = 401
-                    // cancellation exception is rethrown, yet the original IOException gets to the handler
-                }
+
                 catch (e: HttpException) {
                     println(" +++++++++++++++ Rethrowing HttpException 2 : ${e.code()}")
                     failedLogin = e.code()
-                    // cancellation exception is rethrown, yet the original IOException gets to the handler
+
                 }  finally {
 
                     withContext(Dispatchers.Main){
 
                         Timer("Test", false).schedule(2000) {
                             requireActivity().runOnUiThread {
+                                binding.progressBar.visibility = View.INVISIBLE
+                                binding.progressBarBackground.visibility = View.INVISIBLE
 
                                 if (failedLogin == 200)
                                 {
-                                    binding.progressBar.visibility = View.INVISIBLE
-                                    binding.progressBarBackground.visibility = View.INVISIBLE
                                     (session as SessionManager).createLoginSession(loggedUser.token, loggedUser.email, loggedUser.memberSince)
                                     CoroutineScope(Dispatchers.IO).launch {
                                         fillLocalDB(httpApiService)
                                         withContext(Dispatchers.Main){
                                             Log.d("BookingDBString", "DB Filled 1")
+                                            findNavController().navigate(R.id.action_loginFragment_to_hotelsListFragment)
                                         }
                                     }
-
-                                    findNavController().navigate(R.id.action_loginFragment_to_hotelsListFragment)
                                 }
                                 else {
-
-                                    Toast.makeText(myApplication, "Oops! Sorry, wrong username or password", 300).show()
+                                    Toast.makeText(myApplication, "Oops! Sorry, wrong username or password", 3000).show()
+                                    findNavController().navigate(R.id.action_loginFragment_self)
                                 }
                             }
                         }
 
                     }
-                    println("Child is cancelled")
                 }
             }
 
