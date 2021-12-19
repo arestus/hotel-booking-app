@@ -63,7 +63,7 @@ class CreateReservationFragment : Fragment() {
             if (days > 0) {
                 days--
                 if (days == 0) {
-                    Log.d("TEST", "$days")
+//                    Log.d("TEST", "$days")
                     binding.minusView.isEnabled =false
                     binding.confirmReservation.isEnabled =false
                 }
@@ -78,20 +78,23 @@ class CreateReservationFragment : Fragment() {
         binding.confirmReservation.setOnClickListener {
             val myApplication = activity?.application as BookingApp
             val httpApiService = myApplication.httpApiService
+
             try {
                 CoroutineScope(Dispatchers.Main).launch {
                     val test = httpApiService.createReservation(ReservationMin(args.createReserve.id, days))
                     withContext(Dispatchers.Main) {
-                        Log.d("BookingDBString", "$test")
+//                        Log.d("BookingDBString", "$test")
                         findNavController().navigate(R.id.action_createReservationFragment_to_myReservationFragment)
                     }
-
                 }
-
             } catch (e: Exception) {
 
             }
 
+        }
+        binding.createReservTitle.text = args.createReserve.name
+        binding.specificHotelBack.setOnClickListener {
+            findNavController().navigate(R.id.action_createReservationFragment_to_hotelsListFragment)
         }
 
 

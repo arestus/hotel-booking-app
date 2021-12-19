@@ -55,8 +55,10 @@ class MainActivity : AppCompatActivity() {
 
         FillLocalDB()
     }
-
-    private fun FillLocalDB(): BookingDao {
+fun test(){
+    Log.d("test","test")
+}
+     fun FillLocalDB(): BookingDao {
         val myApplication = application as BookingApp
         val httpApiService = myApplication.httpApiService
 
@@ -76,8 +78,8 @@ class MainActivity : AppCompatActivity() {
             if (user != null)
                 dao.insertUser(user)
             if (!reservations.isNullOrEmpty() && user != null && !hotels.isNullOrEmpty()){
-              //  val ttt= httpApiService.deleteReservation(9)
-             //   Log.d("DEl rserv", "$ttt")
+//                    val ttt= httpApiService.deleteReservation(20)
+//                Log.d("DEl rserv", "$ttt")
                 dao.delReservation()
                 dao.insertAllReservations(*reservations)
             }
@@ -101,9 +103,9 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             drawerLayout.openDrawer(GravityCompat.START)
-            var currentAvatar = ImageStorageManager.getImageFromInternalStorage(this.applicationContext, "profile")
-            var drawerAvatar = findViewById<ImageView>(R.id.userPhoto)
-            drawerAvatar.setImageBitmap(currentAvatar)
+//            var currentAvatar = ImageStorageManager.getImageFromInternalStorage(this.applicationContext, "profile")
+//            var drawerAvatar = findViewById<ImageView>(R.id.userPhoto)
+//            drawerAvatar.setImageBitmap(currentAvatar)
         }
     }
 

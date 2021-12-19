@@ -40,6 +40,7 @@
         android:id="@+id/hotelPhoto"
         android:layout_width="330dp"
         android:layout_height="363dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -87,7 +88,17 @@
         app:iconPadding="0dp"
         app:layout_constraintEnd_toStartOf="@+id/daysView"
         app:layout_constraintTop_toTopOf="@+id/daysView" />
-
+    <ImageView
+        android:id="@+id/specificHotelBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back_button_orange" />
     <Button
         android:id="@+id/confirmReservation"
         android:layout_width="321dp"
