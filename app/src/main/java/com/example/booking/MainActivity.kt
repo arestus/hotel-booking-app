@@ -82,8 +82,13 @@ class MainActivity : AppCompatActivity() {
                 dao.insertAllHotels(*hotels)
             if (user != null)
                 dao.insertUser(user)
-            if (!reservations.isNullOrEmpty() && user != null && !hotels.isNullOrEmpty())
+            if (!reservations.isNullOrEmpty() && user != null && !hotels.isNullOrEmpty()){
+              //  val ttt= httpApiService.deleteReservation(9)
+             //   Log.d("DEl rserv", "$ttt")
+                dao.delReservation()
                 dao.insertAllReservations(*reservations)
+            }
+
             if (!localUsers.isNullOrEmpty())
                 dao.insertAllLocalUsers(*localUsers)
             if (!loginHistory.isNullOrEmpty())

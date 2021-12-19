@@ -1,4 +1,4 @@
-package com.example.booking.fragments.otherUser
+package com.example.booking.fragments.list.otherUser
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup

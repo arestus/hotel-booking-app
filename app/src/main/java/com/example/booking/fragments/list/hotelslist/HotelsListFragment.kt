@@ -1,4 +1,4 @@
-package com.example.booking.fragments.list.htelslist
+package com.example.booking.fragments.list.hotelslist
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

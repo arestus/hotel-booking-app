@@ -1,21 +1,16 @@
-package com.example.booking.fragments.loginHistory
+package com.example.booking.fragments.list.loginHistory
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.booking.R
 import com.example.booking.databinding.FragmentLoginHistoryBinding
-import com.example.booking.databinding.FragmentOtherUsersBinding
-import com.example.booking.fragments.otherUser.OtherUsersListAdapter
 import com.example.booking.viewmodels.LoginHistoryViewModel
-import com.example.booking.viewmodels.OtherUsersViewModel
-
 
 
 class LoginHistoryFragment : Fragment() {

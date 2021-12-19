@@ -5,10 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.booking.R
-import com.example.booking.databinding.FragmentHotelsListBinding
 import com.example.booking.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {

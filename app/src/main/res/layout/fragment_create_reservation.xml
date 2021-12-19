@@ -88,17 +88,18 @@
         app:layout_constraintEnd_toStartOf="@+id/daysView"
         app:layout_constraintTop_toTopOf="@+id/daysView" />
 
-    <TextView
+    <Button
         android:id="@+id/confirmReservation"
         android:layout_width="321dp"
         android:layout_height="61dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/orange_button"
+        app:backgroundTint="@color/button_color"
         android:gravity="center"
         android:padding="10dp"
         android:text="@string/confirm_reservation"
-        android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textColor="@color/icon_color"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

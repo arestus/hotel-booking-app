@@ -1,12 +1,10 @@
-package com.example.booking.fragments.loginHistory
+package com.example.booking.fragments.list.loginHistory
 
 import android.annotation.SuppressLint
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.booking.R
 import com.example.booking.data.LoginHistory
 import com.example.booking.databinding.HistoryItemBinding
 import java.text.SimpleDateFormat

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.list.htelslist.HotelsListFragment">
+    tools:context=".fragments.list.hotelslist.HotelsListFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar3"
