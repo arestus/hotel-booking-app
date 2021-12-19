@@ -44,6 +44,5 @@ class BookingApp : Application() {
 
         Log.d("HttpString", "$retrofit")
         return retrofit.create(HttpApiService::class.java)
-
     }
 }
