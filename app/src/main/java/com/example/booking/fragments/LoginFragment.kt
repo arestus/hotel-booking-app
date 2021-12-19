@@ -103,11 +103,11 @@ class LoginFragment : Fragment() {
 
                         Timer("Test", false).schedule(2000) {
                             requireActivity().runOnUiThread {
-
+                                binding.progressBar.visibility = View.INVISIBLE
+                                binding.progressBarBackground.visibility = View.INVISIBLE
                                 if (failedLogin == 200)
                                 {
-                                    binding.progressBar.visibility = View.INVISIBLE
-                                    binding.progressBarBackground.visibility = View.INVISIBLE
+
                                     (session as SessionManager).createLoginSession(loggedUser.token, loggedUser.email, loggedUser.memberSince)
                                     CoroutineScope(Dispatchers.IO).launch {
                                         fillLocalDB(httpApiService)

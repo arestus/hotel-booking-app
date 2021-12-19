@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         session = SessionManager(applicationContext)
-        val del = deleteDatabase("BookingDataBase")
+        //val del = deleteDatabase("BookingDataBase")
 
         drawerLayout = findViewById(R.id.drawer_layout)
         navController = findNavController(R.id.fragmentContainerView)
@@ -65,6 +65,8 @@ class MainActivity : AppCompatActivity() {
 
 
     fun openCloseNavigationDrawer(view: View) {
+        session = SessionManager(applicationContext)
+        findViewById<TextView>(R.id.userEmail).text = (session).GetEmail()
         val yourFilePath = applicationContext.filesDir.toString() + "/" + "profile"
         val yourFile = File(yourFilePath)
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {

@@ -37,12 +37,20 @@ class SessionManager : SharedPreferences {
 
     fun LogoutUser() {
         edior.clear()
-        edior.commit()
+        edior.apply()
     }
 
     fun editEmail(email: String) {
         edior.putString(KEY_EMAIL , email)
         edior.apply()
+    }
+
+    fun GetEmail(): String {
+        return pref.getString(KEY_EMAIL, "").toString()
+    }
+
+    fun GetTime(): String {
+        return pref.getLong(KEY_SINCE, 0).toString()
     }
 
     override fun edit(): SharedPreferences.Editor {

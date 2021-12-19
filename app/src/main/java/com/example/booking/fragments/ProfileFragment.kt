@@ -3,6 +3,7 @@ package com.example.booking.fragments
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -22,16 +23,20 @@ import com.avatarfirst.avatargenlib.AvatarConstants
 import com.avatarfirst.avatargenlib.AvatarGenerator
 import com.example.booking.BookingApp
 import com.example.booking.R
+import com.example.booking.SessionManager
 
 import com.example.booking.databinding.FragmentProfileBinding
 import com.example.booking.viewmodels.ImageStorageManager
 import com.squareup.picasso.Picasso
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+    private lateinit var session: SharedPreferences
 
     companion object {
         private const val CAMERA_PERMISSION_CODE = 1
@@ -44,6 +49,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        session = SessionManager(requireActivity())
         // Inflate the layout for this fragment
         binding.backButtonProfile.setOnClickListener{
             findNavController().navigate(R.id.action_profileFragment_to_fragment_hotels_list)
@@ -60,6 +66,9 @@ class ProfileFragment : Fragment() {
                 )
             }
         }
+        binding.emailTextView.text = (session as SessionManager).GetEmail()
+        binding.memberSinceTextView.text = "Member since:  " + getDateTime((session as SessionManager).GetTime())
+
         binding.changeEmailConfirm.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_changeEmailFragment)
         }
@@ -69,7 +78,10 @@ class ProfileFragment : Fragment() {
         binding.deleteAccountTextView.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_deleteAccountFragment)
         }
-
+        binding.logOutTextView.setOnClickListener {
+            (session as SessionManager).LogoutUser()
+            findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+        }
 
 
 
@@ -138,6 +150,16 @@ class ProfileFragment : Fragment() {
                 Toast.makeText(this.requireContext(), "Oops you just denied permission + " +
                         "for camera. Don't worry you can allow in in the settings", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun getDateTime(s: String): String? {
+        try {
+            val sdf = SimpleDateFormat("dd MMMM yyyy")
+            val netDate = Date(s.toLong())
+            return sdf.format(netDate)
+        } catch (e: Exception) {
+            return e.toString()
         }
     }
 
