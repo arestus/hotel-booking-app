@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.booking.BookingApp
 import com.example.booking.MainActivity
@@ -47,61 +48,53 @@ class CreateReservationFragment : Fragment() {
 
         var days = 0
         binding.minusView.isEnabled =false
+        binding.confirmReservation.isEnabled =false
 
         binding.addView.setOnClickListener {
-
             days++
             if (days > 0) {
                 binding.minusView.isEnabled =true
-//                binding.minusView.setBackgroundResource(R.drawable.red_button)
-
+                binding.confirmReservation.isEnabled =true
             }
             updateData(days)
-
         }
 
         binding.minusView.setOnClickListener {
-
             if (days > 0) {
                 days--
                 if (days == 0) {
-                    Log.d("TEST", "$days")
+//                    Log.d("TEST", "$days")
                     binding.minusView.isEnabled =false
-//                    binding.minusView.iconTint = ColorStateList.valueOf(R.color.white);
+                    binding.confirmReservation.isEnabled =false
                 }
             }
             updateData(days)
 
         }
-//HtmlCompat.fromHtml("Price per room: <b> ${args.currentHotel.pricePerNight} <b>", HtmlCompat.FROM_HTML_MODE_LEGACY)
         (requireActivity() as MainActivity).supportActionBar?.title = args.createReserve.name
         updateData(days)
-
-//        binding.daysView.text = HtmlCompat.fromHtml(
-//            "Rooms left:<b> ${args.createReserve.roomsLeft} <b>",
-//            HtmlCompat.FROM_HTML_MODE_LEGACY
-//        )
-//        binding.localAttraction.text = "Rooms left: ${args.currentHotel.roomsLeft}"
-//        binding.localAttractionDescription.text = "Rooms left: ${args.currentHotel.roomsLeft}"
         Picasso.get().load(args.createReserve.url).into(binding.hotelPhoto)
 
         binding.confirmReservation.setOnClickListener {
             val myApplication = activity?.application as BookingApp
             val httpApiService = myApplication.httpApiService
+
             try {
                 CoroutineScope(Dispatchers.Main).launch {
-                    val test = httpApiService.createReservation(ReservationMin(1, 1))
+                    val test = httpApiService.createReservation(ReservationMin(args.createReserve.id, days))
                     withContext(Dispatchers.Main) {
-                        Log.d("BookingDBString", "$test")
-
+//                        Log.d("BookingDBString", "$test")
+                        findNavController().navigate(R.id.action_createReservationFragment_to_myReservationFragment)
                     }
-
                 }
-
             } catch (e: Exception) {
 
             }
 
+        }
+        binding.createReservTitle.text = args.createReserve.name
+        binding.specificHotelBack.setOnClickListener {
+            findNavController().navigate(R.id.action_createReservationFragment_to_hotelsListFragment)
         }
 
 

@@ -1,4 +1,4 @@
-package com.example.booking.fragments.list.htelslist
+package com.example.booking.fragments.list.hotelslist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
