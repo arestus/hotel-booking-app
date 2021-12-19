@@ -24,8 +24,11 @@ interface BookingDao {
     @Query("SELECT * FROM hotels")
     fun getHotels(): LiveData<List<Hotel>>
 
+    @Query("DELETE FROM reservations")
+    fun delReservation()
+
     @Query("SELECT * FROM reservations")
-    suspend fun getReservations(): List<Reservation>
+     fun getReservations(): LiveData<List<Reservation>>
 
     @Query("SELECT * FROM localUsers")
     fun getLocalUsers(): LiveData<List<LocalUser>>
@@ -36,6 +39,7 @@ interface BookingDao {
     @Query("SELECT * FROM users WHERE id = (SELECT MAX(id) FROM users)")
     suspend fun getUser(): User
 
-
+    @Query("SELECT * FROM reservations JOIN hotels ON reservations.hotelId=hotels.id ")
+     fun fullReservation(): LiveData<List<Reservation>>
 
 }

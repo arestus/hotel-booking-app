@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/hotelsListFragment"
-        android:name="com.example.booking.fragments.list.htelslist.HotelsListFragment"
+        android:name="com.example.booking.fragments.list.hotelslist.HotelsListFragment"
         android:label="All Your options"
         tools:layout="@layout/fragment_hotels_list" >
         <action
@@ -97,12 +97,15 @@
     </fragment>
     <fragment
         android:id="@+id/myReservationFragment"
-        android:name="com.example.booking.fragments.MyReservationFragment"
+        android:name="com.example.booking.fragments.list.reservedlist.MyReservationFragment"
         android:label="fragment_my_resrvation"
         tools:layout="@layout/fragment_my_resrvation">
         <action
             android:id="@+id/action_myReservationFragment_to_hotelsListFragment"
             app:destination="@id/hotelsListFragment" />
+        <action
+            android:id="@+id/action_myReservationFragment_self"
+            app:destination="@id/myReservationFragment" />
     </fragment>
     <fragment
         android:id="@+id/createReservationFragment"
@@ -112,10 +115,16 @@
         <argument
             android:name="createReserve"
             app:argType="com.example.booking.data.Hotel" />
+        <action
+            android:id="@+id/action_createReservationFragment_to_myReservationFragment"
+            app:destination="@id/myReservationFragment" />
+        <action
+            android:id="@+id/action_createReservationFragment_to_hotelsListFragment"
+            app:destination="@id/hotelsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/otherUsersFragment"
-        android:name="com.example.booking.fragments.otherUser.OtherUsersFragment"
+        android:name="com.example.booking.fragments.list.otherUser.OtherUsersFragment"
         android:label="fragment_other_users"
         tools:layout="@layout/fragment_other_users">
         <action
@@ -124,7 +133,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginHistoryFragment"
-        android:name="com.example.booking.fragments.loginHistory.LoginHistoryFragment"
+        android:name="com.example.booking.fragments.list.loginHistory.LoginHistoryFragment"
         android:label="fragment_login_history"
         tools:layout="@layout/fragment_login_history" >
         <action

@@ -1,4 +1,4 @@
-package com.example.booking.fragments.otherUser
+package com.example.booking.fragments.list.otherUser
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

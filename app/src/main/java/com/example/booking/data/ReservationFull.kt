@@ -6,19 +6,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity(tableName = "reservations")
-data class Reservation(
+data class ReservationFull(
     val userId: Int = 0,
-    val hotelId: Int = 0,
-//    val name: String?,
+    val hotelId: String = "",
     @PrimaryKey
     val reservationId: Int = 0,
     val nightsCount: Int = 0,
-//    val pricePerNight: Int?,
+    val price: Int = 0,
     val dateTimestamp: String = "",
-    val name: String = "",
-    val url: String = "",
-    val roomsLeft: Int = 0,
-    val pricePerNight: Int = 0,
-    val reservedByPeople: Int = 0
+
 )
 
