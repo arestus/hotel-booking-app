@@ -1,15 +1,11 @@
 package com.example.booking
 
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
-import androidx.core.widget.ImageViewCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -21,16 +17,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.avatarfirst.avatargenlib.AvatarConstants
 import com.avatarfirst.avatargenlib.AvatarGenerator
 
-import com.example.booking.data.*
-
-
 import com.example.booking.databinding.ActivityMainBinding
 import com.example.booking.viewmodels.ImageStorageManager
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.io.File
 
 
@@ -66,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
     fun openCloseNavigationDrawer(view: View) {
         session = SessionManager(applicationContext)
-        findViewById<TextView>(R.id.userEmail).text = (session).GetEmail()
+        findViewById<TextView>(R.id.userEmail).text = (session).getEmail()
         val yourFilePath = applicationContext.filesDir.toString() + "/" + "profile"
         val yourFile = File(yourFilePath)
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {

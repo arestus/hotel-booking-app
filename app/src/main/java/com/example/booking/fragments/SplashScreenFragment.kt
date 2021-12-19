@@ -46,7 +46,7 @@ class SplashScreenFragment : Fragment() {
 
                 if (isLogged)
                 {
-                    FillLocalDB()
+                    fillLocalDB()
                     findNavController().navigate(R.id.action_splashScreenFragment_to_hotelsListFragment)
                 }
                 else
@@ -57,7 +57,7 @@ class SplashScreenFragment : Fragment() {
         return view
     }
 
-    fun FillLocalDB(): BookingDao {
+    private fun fillLocalDB() {
         val myApplication = activity?.application as BookingApp
         val httpApiService = myApplication.httpApiService
 
@@ -84,7 +84,7 @@ class SplashScreenFragment : Fragment() {
                 Log.d("BookingDBString", "DB Filled")
             }
         }
-        return dao;
+
     }
 
 

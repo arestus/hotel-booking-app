@@ -37,7 +37,7 @@ class DeleteAccountFragment : Fragment() {
         binding.deleteAccountBack.setOnClickListener {
             findNavController().navigate(R.id.action_deleteAccountFragment_to_profileFragment)
         }
-        binding.textViewAccountToDelete.text = (session as SessionManager).GetEmail()
+        binding.textViewAccountToDelete.text = (session as SessionManager).getEmail()
         val myApplication = activity?.application as BookingApp
         val httpApiService = myApplication.httpApiService
         binding.deleteAccountConfirm.setOnClickListener {
@@ -57,7 +57,7 @@ class DeleteAccountFragment : Fragment() {
                                     Toast.LENGTH_LONG
                                 ).show()
                             }
-                            (session as SessionManager).LogoutUser()
+                            (session as SessionManager).logoutUser()
                             findNavController().navigate(R.id.action_deleteAccountFragment_to_registerFragment)
                         }
                     } catch (e: Exception) {
