@@ -1,6 +1,7 @@
 package com.example.booking
 
 import android.app.Application
+import android.content.res.Configuration
 import android.util.Log
 
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -45,4 +46,13 @@ class BookingApp : Application() {
         Log.d("HttpString", "$retrofit")
         return retrofit.create(HttpApiService::class.java)
     }
+
+   fun updateHttpApiService() {
+        session = SessionManager(applicationContext)
+        val token = session.getToken()
+        httpApiService =
+            initHttpApiService(token)
+    }
+
+
 }

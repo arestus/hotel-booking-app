@@ -65,7 +65,7 @@ class SessionManager : SharedPreferences {
 
     fun getToken(): String {
 
-        return pref.getString(PREF_NAME, "").toString()
+        return pref.getString(PREF_NAME, null).toString()
     }
 
     override fun getAll(): MutableMap<String, *> {

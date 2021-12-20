@@ -39,8 +39,10 @@ class DeleteAccountFragment : Fragment() {
             findNavController().navigate(R.id.action_deleteAccountFragment_to_profileFragment)
         }
         binding.textViewAccountToDelete.text = (session as SessionManager).getEmail()
+
         val myApplication = activity?.application as BookingApp
         val httpApiService = myApplication.httpApiService
+
         binding.deleteAccountConfirm.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
             binding.progressBarBackground.visibility = View.VISIBLE
@@ -59,7 +61,7 @@ class DeleteAccountFragment : Fragment() {
                                 ).show()
                             }
                             (session as SessionManager).logoutUser()
-                            findNavController().navigate(R.id.action_deleteAccountFragment_to_registerFragment)
+                            findNavController().navigate(R.id.action_deleteAccountFragment_to_loginFragment)
                         }
                     } catch (e: Exception) {
                         Toast.makeText(
