@@ -33,6 +33,7 @@ class DeleteAccountFragment : Fragment() {
 
         _binding = FragmentDeleteAccountBinding.inflate(inflater, container, false)
         session = SessionManager(requireActivity())
+        binding.deleteTitleTextView.text = "Confirm account delete"
         // Inflate the layout for this fragment
         binding.deleteAccountBack.setOnClickListener {
             findNavController().navigate(R.id.action_deleteAccountFragment_to_profileFragment)

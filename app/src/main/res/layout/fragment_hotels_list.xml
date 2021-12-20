@@ -55,9 +55,11 @@
         android:contentDescription="back button desc"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:src="@drawable/ic_back_button_orange"
+        android:src="@drawable/ic_logout"
         app:layout_constraintEnd_toEndOf="@+id/toolbar3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logout"
+        tools:srcCompat="@drawable/ic_logout" />
 
     <TextView
         android:id="@+id/hotelsFragmentTitle"
