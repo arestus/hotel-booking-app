@@ -27,7 +27,8 @@ class SessionManager : SharedPreferences {
         editor.putString(PREF_NAME, token)
         editor.putString(KEY_EMAIL, email)
         editor.putLong(KEY_SINCE, sinceTime)
-        editor.commit()
+
+        editor.apply()
     }
 
     fun checkLogin(): Boolean {

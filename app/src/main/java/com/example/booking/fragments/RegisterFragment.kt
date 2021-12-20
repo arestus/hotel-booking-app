@@ -56,10 +56,11 @@ class RegisterFragment : Fragment() {
                 else userEmail.lowercase()
 
             val maskedPassword =
-                if (userPassword.isNullOrEmpty()) ""
+                if (userPassword.isNullOrEmpty() ) ""
                 else userPassword
 
-            if (userEmail.isEmailValid())
+            if (userEmail.isEmailValid()) {
+            if (userPassword.length > 3)
             CoroutineScope(Dispatchers.IO).launch {
 
                 val user: UserMin = UserMin(maskedEmail, maskedPassword)
@@ -93,12 +94,24 @@ class RegisterFragment : Fragment() {
                         }
                     }
                 }
-            } else
+            } else {
+                binding.progressBar.visibility = View.INVISIBLE
+                binding.progressBarBackground.visibility = View.INVISIBLE
+                Toast.makeText(
+                    myApplication,
+                    "Sorry, Password is short (min: 4 symbols). Please, Try again!",
+                    2000
+                ).show()
+            }
+            }else {
+                binding.progressBar.visibility = View.INVISIBLE
+                binding.progressBarBackground.visibility = View.INVISIBLE
                 Toast.makeText(
                     myApplication,
                     "Incorrect Email input. Try again!",
                     2000
                 ).show()
+            }
         }
         return binding.root
     }
