@@ -103,8 +103,12 @@ class LoginFragment : Fragment() {
                                 if (failedLogin == 200)
                                 {
                                     (session as SessionManager).createLoginSession(loggedUser.token, loggedUser.email, loggedUser.memberSince)
+
+                                    val tokenn = (session as SessionManager).getToken()
+                                    Log.d("__ Token", " +++++++++ $tokenn")
+
                                     CoroutineScope(Dispatchers.IO).launch {
-                                        fillLocalDB(httpApiService)
+                                        fillLocalDB()
                                         withContext(Dispatchers.Main){
                                             Log.d("BookingDBString", "DB Filled 1")
                                             findNavController().navigate(R.id.action_loginFragment_to_hotelsListFragment)
@@ -142,7 +146,11 @@ class LoginFragment : Fragment() {
         return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
     }
 
-    private fun fillLocalDB(httpApiService: HttpApiService) {
+    private fun fillLocalDB() {
+
+        val myApplication1 = activity?.application as BookingApp
+        myApplication1.updateHttpApiService()
+        val httpApiService = myApplication1.httpApiService
 
         val dao = BookingDatabase.getInstance(requireActivity()).bookingDao()
 

@@ -1,5 +1,6 @@
 package com.example.booking.fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.booking.BookingApp
 import com.example.booking.R
+import com.example.booking.SessionManager
 import com.example.booking.data.UserEmail
 import com.example.booking.databinding.FragmentChangeEmailBinding
 import kotlinx.coroutines.CoroutineScope
@@ -23,13 +25,15 @@ import kotlin.concurrent.schedule
 class ChangeEmailFragment : Fragment() {
     private var _binding: FragmentChangeEmailBinding? = null
     private val binding get() = _binding!!
+    private lateinit var session: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentChangeEmailBinding.inflate(inflater, container, false)
+        session = SessionManager(requireActivity())
         // Inflate the layout for this fragment
         binding.changeEmailBack.setOnClickListener {
             findNavController().navigate(R.id.action_loginHistoryFragment_to_profileFragment)
@@ -50,10 +54,12 @@ class ChangeEmailFragment : Fragment() {
                 requireActivity().runOnUiThread {
                     binding.progressBar.visibility = View.INVISIBLE
                     binding.progressBarBackground.visibility = View.INVISIBLE
+
                     if (inputEmail!!.isEmailValid()) {
                         try {
                             CoroutineScope(Dispatchers.Main).launch {
-                                //httpApiService.changeEmail(UserEmail(inputEmail))
+                                httpApiService.changeEmail(UserEmail(inputEmail))
+                                (session as SessionManager).editEmail(inputEmail)
                                 withContext(Dispatchers.Main) {
                                     Toast.makeText(
                                         myApplication,

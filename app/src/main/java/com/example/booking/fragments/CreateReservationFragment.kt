@@ -16,6 +16,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.booking.BookingApp
 import com.example.booking.MainActivity
 import com.example.booking.R
+import com.example.booking.data.BookingDatabase
 import com.example.booking.data.ReservationMin
 import com.example.booking.data.UserMin
 import com.example.booking.databinding.FragmentCreateReservationBinding
@@ -41,20 +42,20 @@ class CreateReservationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d("test_args", "$args")
+        //Log.d("test_args", "$args")
         _binding = FragmentCreateReservationBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         mUserViewModel = ViewModelProvider(this)[HotelViewModel::class.java]
 
         var days = 0
-        binding.minusView.isEnabled =false
-        binding.confirmReservation.isEnabled =false
+        binding.minusView.isEnabled = false
+        binding.confirmReservation.isEnabled = false
 
         binding.addView.setOnClickListener {
             days++
             if (days > 0) {
-                binding.minusView.isEnabled =true
-                binding.confirmReservation.isEnabled =true
+                binding.minusView.isEnabled = true
+                binding.confirmReservation.isEnabled = true
             }
             updateData(days)
         }
@@ -64,8 +65,8 @@ class CreateReservationFragment : Fragment() {
                 days--
                 if (days == 0) {
 //                    Log.d("TEST", "$days")
-                    binding.minusView.isEnabled =false
-                    binding.confirmReservation.isEnabled =false
+                    binding.minusView.isEnabled = false
+                    binding.confirmReservation.isEnabled = false
                 }
             }
             updateData(days)
@@ -81,9 +82,10 @@ class CreateReservationFragment : Fragment() {
 
             try {
                 CoroutineScope(Dispatchers.Main).launch {
-                    val test = httpApiService.createReservation(ReservationMin(args.createReserve.id, days))
+                    httpApiService.createReservation(ReservationMin(args.createReserve.id, days))
                     withContext(Dispatchers.Main) {
-//                        Log.d("BookingDBString", "$test")
+                        updateReservations()
+
                         findNavController().navigate(R.id.action_createReservationFragment_to_myReservationFragment)
                     }
                 }
@@ -112,6 +114,29 @@ class CreateReservationFragment : Fragment() {
             "Price: <b>${args.createReserve.pricePerNight * days}$<b>",
             HtmlCompat.FROM_HTML_MODE_LEGACY
         )
+    }
+
+    private fun updateReservations() {
+
+        val myApplication = activity?.application as BookingApp
+        val httpApiService = myApplication.httpApiService
+
+        val dao = BookingDatabase.getInstance(requireActivity()).bookingDao()
+
+        CoroutineScope(Dispatchers.IO).launch {
+
+            val reservations =
+                httpApiService.getReservations().reservations?.toTypedArray() ?: emptyArray()
+
+            if (!reservations.isNullOrEmpty()) {
+                dao.delReservation()
+                dao.insertAllReservations(*reservations)
+            }
+
+            withContext(Dispatchers.Main) {
+                Log.d("BookingDBString", "DB Filling Succeed")
+            }
+        }
     }
 
 

@@ -22,7 +22,7 @@ class LoginHistoryListAdapter (private var historyList: List<LoginHistory>) :
 
     override fun onBindViewHolder(holder: LoginHistoryListAdapter.MyViewHolder, position: Int) {
 
-        val currentItem = historyList[position +1]
+        val currentItem = historyList[position]
         with(holder) {
             with(currentItem) {
                 var time = getDateTime(loginTimestamp)

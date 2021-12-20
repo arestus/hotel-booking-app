@@ -52,8 +52,8 @@ class MyReservationListAdapter(private var reservationList: List<Reservation>) :
                     url
                 ).into(binding.hotelPhoto)
 
-                binding.reservationDate.text ="Date:${reservationId}\n${getDateTime(dateTimestamp)}"
-                binding.nightsReserved.text = "${nightsCount} nights ${reservationList.size}"
+                binding.reservationDate.text ="Date:\n${getDateTime(dateTimestamp)}"
+                binding.nightsReserved.text = "${nightsCount} nights"
                 binding.price.text = "Total cost: ${pricePerNight * nightsCount}$"
                 binding.deleteButton.setOnClickListener { view ->
                     val myApplication = view.context.applicationContext as BookingApp
