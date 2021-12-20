@@ -1,5 +1,6 @@
 package com.example.booking.fragments.list.hotelslist
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,13 +15,14 @@ import kotlin.concurrent.schedule
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.booking.R
+import com.example.booking.SessionManager
 
 
 class HotelsListFragment : Fragment() {
     private lateinit var mUserViewModel: HotelViewModel
 //    private var layoutManager: RecyclerView.LayoutManager? = null
 //    private var adapter: RecyclerView.Adapter<HotelListAdapter.MyViewHolder>? = null
-//
+    private lateinit var session: SharedPreferences
 
     private var _binding: FragmentHotelsListBinding? = null
     private val binding get() = _binding!!
@@ -29,6 +31,7 @@ class HotelsListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHotelsListBinding.inflate(inflater, container, false)
+        session = SessionManager(requireActivity())
         val adapter = HotelListAdapter(emptyList())
         val recyclerView = binding.hotelRecyclerView
         recyclerView.adapter = adapter
@@ -39,6 +42,7 @@ class HotelsListFragment : Fragment() {
             adapter.setData(user)
         })
         binding.backButton.setOnClickListener{
+            (session as SessionManager).logoutUser()
             findNavController().navigate(R.id.action_hotelsListFragment_to_loginFragment)
         }
         binding.hotelsFragmentTitle.text = "All Your Options"
